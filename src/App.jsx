@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Hero from './compoment/Hero'
 
 import Navbar from './components/Navbar'
 import { BrowserRouter, Route, Router,Routes } from 'react-router-dom'
@@ -25,7 +24,6 @@ function App() {
       
       </BrowserRouter>
       
-      <Hero />
     </div>
   )
 }

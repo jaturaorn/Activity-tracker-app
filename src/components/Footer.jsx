@@ -1,8 +1,8 @@
 
 const Footer = () => {
     return (
-        <footer>
-            <h1>Footer</h1>
+        <footer className="bg-main-purple-500">
+            <h1></h1>
         </footer>
     );
 }
