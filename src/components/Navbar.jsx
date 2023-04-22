@@ -10,19 +10,19 @@ const Navbar = () => {
     ] 
     
     return (
-        <nav className='bg-main-purple w-full flex justify-center space-x-o'>
-            <div className='container w-full py-5'>
+        <nav className='bg-main-purple w-full flex justify-center space-x-o sticky top-0'>
+            <div className='container py-5'>
                 <div className='flex flex-row justify-between  items-center'>
                     {/* Left section */}
                     <div className='flex items-center'>
-                        <span>Just Fit</span>
+                        <span className='text-main-pink font-extrabold text-2xl'><span className='text-white px-0'>Just </span>Fit</span>
                     </div>
                     
                     {/* Center section */}
                     <div className='flex justify-center gap-8'>
                         {navMenu.map((item, i) => {
                             return (
-                                <Link key={i} to={item.link} className='text-white hover:text-gray-300'>
+                                <Link key={i} to={item.link} className='text-white hover:text-gray-300 font-bold'>
                                     {item.title}
                                 </Link>
                             );

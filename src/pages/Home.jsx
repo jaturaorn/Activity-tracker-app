@@ -1,9 +1,13 @@
 import React from 'react'
+import Main from '../components/Main'
+import Quote from "../components/Quote"
 
 function Home() {
   return (
-    <div>Home</div>
-  )
+    
+    <Main/>
+    
+  );
 }
 
 export default Home
