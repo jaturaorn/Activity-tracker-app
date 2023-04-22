@@ -4,6 +4,7 @@ import Quote from "../components/Quote"
 
 function Home() {
   return (
+    
     <Main/>
     
   );
