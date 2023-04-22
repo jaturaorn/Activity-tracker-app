@@ -15,7 +15,7 @@ const Navbar = () => {
                 <div className='flex flex-row justify-between  items-center'>
                     {/* Left section */}
                     <div className='flex items-center'>
-                        <span className='text-main-pink font-extrabold text-2xl'><span className='text-white px-0'>Just </span>Fit</span>
+                        <span className='text-main-pink font-extrabold text-2xl mx-0'><span className='text-white px-0'>Just</span>Fit</span>
                     </div>
                     
                     {/* Center section */}
