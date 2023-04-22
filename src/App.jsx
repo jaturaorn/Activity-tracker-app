@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import RecipesPage from './pages/RecipesPage'
 import WorkoutVideos from './pages/WorkoutVideos'
 import Dashboard from './pages/Dashboard'
-import Main from './components/Main'
+//import Main from './components/Main'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,7 +24,7 @@ function App() {
       
       </BrowserRouter>
 
-      <Main/>
+      
       
       
     </div>
