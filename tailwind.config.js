@@ -8,7 +8,9 @@ export default {
     extend: {
       colors: {
         'main-pink' : '#FF4878',
-        'main-purple' : '#6f36BC'
+        'main-purple' : '#6f36BC',
+        "main-dark-purple": "#35174D",
+		"main-light-purple": "#F3EFFE"
       }
     },
   },
