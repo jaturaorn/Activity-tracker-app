@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import Hero from './compoment/Hero'
-
 import Navbar from './components/Navbar'
 import { BrowserRouter, Route, Router,Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import RecipesPage from './pages/RecipesPage'
 import WorkoutVideos from './pages/WorkoutVideos'
 import Dashboard from './pages/Dashboard'
+import Main from './components/Main'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,8 +23,10 @@ function App() {
           </Routes>
       
       </BrowserRouter>
+
+      <Main/>
       
-      <Hero />
+      
     </div>
   )
 }
