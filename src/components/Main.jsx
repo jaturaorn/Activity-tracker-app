@@ -11,12 +11,12 @@ const Main = () => {
             </section>
             <section className="container mx-auto">
                 <article className="flex text-white pt-16 px-16 max-sm:flex-col max-sm:gap-y-4 max-md:flex-row" >
-                    <header className="flex flex-col justify-center items-center w-1/2 pr-10 gap-y-4 max-sm:w-full max-sm:pr-0">
+                    <header className="flex flex-col justify-center items-center w-2/4 pr-10 gap-y-4 max-sm:w-full max-sm:pr-0">
                         <h1 className="text-4xl font-semibold">Personalized goal tracking.</h1>
                         <p className="text-xl">JustFit allows you to set customized fitness goals and track your progress towards them. This ensures that you stay motivated and focused on achieving your goals.</p>
                     </header>
-                    <figure className="w-1/2 max-sm:w-full">
-                        <img className="block w-full rounded-xl shadow-xl shadow-main-dark-purple" src="https://user-images.githubusercontent.com/117998772/230391741-88c67461-ff09-4d73-ba33-cbc18f96a55d.jpg" alt="excersise image" />
+                    <figure className="w-2/4 max-sm:w-full">
+                        <img className="block w-full/2 rounded-xl shadow-xl shadow-main-dark-purple" src="https://user-images.githubusercontent.com/117998772/230391741-88c67461-ff09-4d73-ba33-cbc18f96a55d.jpg" alt="excersise image" />
                     </figure>
                 </article>
                 <article className="flex flex-row-reverse text-white p-16 max-sm:flex-col max-sm:gap-y-4 max-md:flex-row">
