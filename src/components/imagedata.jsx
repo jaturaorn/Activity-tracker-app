@@ -1,8 +1,7 @@
-import pic1 from '../images/pic1.jpg';
-import pic2 from '../images/pic2.jpg';
-import pic3 from '../images/pic3.jpg';
-import pic4 from '../images/pic4.jpg';
-import pic5 from '../images/pic5.jpg';
+
+import pic1 from '/src/assets/cover1.jpg'
+import pic2 from '/src/assets/cover2.jpg'
+import pic3 from '/src/assets/cover3.jpg'
 
 const Imagedata = [
 {
@@ -17,14 +16,6 @@ const Imagedata = [
     title: "ออกกำลังกาย3",
     image: pic3
 },
-{
-    title: "ออกกำลังกาย4",
-    image: pic4
-},
-{
-    title: "ออกกำลังกาย5",
-    image: pic5
-}
 ]
 
 export default Imagedata

@@ -11,11 +11,11 @@ const Navbar = () => {
     
     return (
         <nav className='bg-main-purple w-full flex justify-center space-x-o sticky top-0'>
-            <div className='container py-5'>
-                <div className='flex flex-row justify-between  items-center'>
+            <div className='container px-16 py-4'>
+                <div className='flex justify-between items-center'>
                     {/* Left section */}
                     <div className='flex items-center'>
-                        <span className='text-main-pink font-extrabold text-2xl'><span className='text-white px-0'>Just </span>Fit</span>
+                        <span className='text-main-pink font-extrabold text-2xl'><span className='text-white px-0'>Just</span>Fit</span>
                     </div>
                     
                     {/* Center section */}

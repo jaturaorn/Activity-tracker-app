@@ -1,3 +1,5 @@
+import content1 from "/src/assets/content1.jpg"
+import content2 from "/src/assets/content2.jpg"
 
 const Main = () => {
     return (
@@ -16,7 +18,7 @@ const Main = () => {
                         <p className="text-xl">JustFit allows you to set customized fitness goals and track your progress towards them. This ensures that you stay motivated and focused on achieving your goals.</p>
                     </header>
                     <figure className="w-2/4 max-sm:w-full">
-                        <img className="block w-full/2 rounded-xl shadow-xl shadow-main-dark-purple" src="https://user-images.githubusercontent.com/117998772/230391741-88c67461-ff09-4d73-ba33-cbc18f96a55d.jpg" alt="excersise image" />
+                        <img className="block w-full/2 rounded-xl shadow-xl shadow-main-dark-purple" src={content1} alt="excersise image" />
                     </figure>
                 </article>
                 <article className="flex flex-row-reverse text-white p-16 max-sm:flex-col max-sm:gap-y-4 max-md:flex-row">
@@ -25,7 +27,7 @@ const Main = () => {
                         <p className="text-xl">JustFit allows you to easily track your workouts and monitor your progress towards your fitness goals. You can view your data in easy-to-read graphs and charts, making it easier to make informed decisions about your fitness routine.</p>
                     </header>
                     <figure className="w-1/2 max-sm:w-full">
-                        <img className="block w-full rounded-xl shadow-xl shadow-main-dark-purple" src="https://user-images.githubusercontent.com/117998772/230391739-4699b48a-868b-4374-a229-96903442187f.jpg" alt="excersise image" />
+                        <img className="block w-full rounded-xl shadow-xl shadow-main-dark-purple" src={content2} alt="excersise image" />
                     </figure>
                 </article>
             </section>
