@@ -1,3 +1,4 @@
+
 import pic1 from '/src/assets/cover1.jpg'
 import pic2 from '/src/assets/cover2.jpg'
 import pic3 from '/src/assets/cover3.jpg'
