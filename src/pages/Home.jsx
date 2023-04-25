@@ -1,13 +1,15 @@
 import React from 'react'
 import Main from '../components/Main'
 import Quote from "../components/Quote"
-import Navbar from '../components/Navbar';
+import Imageslider from "../components/Imageslider"
 
 function Home() {
   return (
-    <Main/>
-
+    <>
+      <Imageslider />
+      <Main/>
+    </>
   );
 }
 
-export default Home
+export default Home;
