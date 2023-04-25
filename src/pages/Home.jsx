@@ -6,7 +6,6 @@ import Imageslider from "../components/Imageslider"
 function Home() {
   return (
     <>
-      <Imageslider />
       <Main/>
     </>
   );
