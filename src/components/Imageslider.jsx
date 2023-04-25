@@ -1,18 +1,19 @@
 import '../imgescss.css'
+import { useState } from 'react';
 
-const Imageslider = () => {
+const Imageslider = ( {Imagedata} ) => {
     const [Current,setCurrent] = useState(0);
-    const length = Imagedata.length;
+    const lengths = Imagedata.length;
 
     const prevSlide =()=>{
         if(Current === 0){
-            setCurrent(length-1)
+            setCurrent(lengths-1)
         }else{
             setCurrent(Current-1)
         }
     }
     const nextSlide =()=>{
-        if(Current === length-1){
+        if(Current === lengths-1){
             setCurrent(0)
         }else{
             setCurrent(Current+1)
