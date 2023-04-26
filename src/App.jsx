@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import RecipesPage from './pages/RecipesPage'
 import WorkoutVideos from './pages/WorkoutVideos'
 import Dashboard from './pages/Dashboard'
+import CardMenu from './shared/CardMenu'
 //import Main from './components/Main'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
           <Navbar />
+          <CardMenu/>
           <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/workoutvideos' element={<WorkoutVideos/>}/>
@@ -25,6 +27,7 @@ function App() {
       </BrowserRouter>
 
       
+
       
       
     </div>
