@@ -10,7 +10,10 @@ export default {
         'main-pink' : '#FF4878',
         'main-purple' : '#6f36BC',
         "main-dark-purple": "#35174D",
-		"main-light-purple": "#F3EFFE"
+        "main-light-purple": "#F3EFFE"
+      },
+      spacing: {
+        "400": "400px"
       }
     },
   },
