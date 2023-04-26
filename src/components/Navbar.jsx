@@ -37,7 +37,8 @@ const Navbar = () => {
 
     
     return (
-        <nav className='bg-main-purple w-full flex justify-center space-x-o sticky top-0'>
+        <nav className='bg-main-purple w-full flex justify-center space-x-o sticky top-0'>\
+        
             <div className='container py-5'>
                 <div className='flex flex-row justify-between'>
                     {/* Left section */}
@@ -46,6 +47,7 @@ const Navbar = () => {
                             <span className='text-main-pink font-extrabold text-2xl mx-0'><span className='text-white px-0'>Just</span>Fit</span>
                         </Link>
                         
+
                     </div>
                     
                     {/* Center section */}

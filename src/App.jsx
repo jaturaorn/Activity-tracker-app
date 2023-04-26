@@ -7,8 +7,6 @@ import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from "./pages/Register"
 
-//import Main from './components/Main'
-
 function App() {
 
   return (
