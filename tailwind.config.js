@@ -13,7 +13,11 @@ export default {
         "main-light-purple": "#F3EFFE"
       },
       spacing: {
-        "400": "400px"
+        "400": "400px",
+        "900": "900px",
+      },
+      backgroundSize: {
+        "100": "100% 100%"
       }
     },
   },
