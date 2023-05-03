@@ -10,8 +10,8 @@ function RecipesPage() {
             
             <div className="container mx-auto my-auto p-8 py-10">
                 <div className=' hidden md:flex justify-around '>
-                    <h2 className='md:font-extrabold text-2xl my-3'>Dish of the Day</h2>
-                    <h2 className='md:font-extrabold text-2xl my-3 ml-10'>Best of Its Kind</h2>
+                    <h2 className='md:font-extrabold text-3xl my-3'>Dish of the Day</h2>
+                    <h2 className='md:font-extrabold text-3xl my-3 ml-10'>Best of Its Kind</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 gap-8 mt-3">
                     <div className="border-2 border-solid border-main-purple rounded-lg md:col-span-4 md:row-span-2 p-4">
@@ -37,7 +37,7 @@ function RecipesPage() {
                         </div>
                     </div>
 
-                    <div className="border-2 border-solid border-transparent rounded-lg md:col-span-2">
+                    <div className="border-10 border-solid border-transparent rounded-lg md:col-span-2">
                         <div className="flex bg-main-purple justify-between items-center align-middle rounded-3xl best-of-salad-container ml-4">
                                 <img
                                 className="hidden md:block w-48 h-48 rounded-lg"
@@ -49,9 +49,13 @@ function RecipesPage() {
                     
                  </div>
 
-                 <div>
-                     <div>
-                        <h2>Vegetarian</h2>
+                 <div className='flex m-5'>
+                     <div className='flex align-bottom items-end gap-3'>
+                        <h2 className='font-bold text-3xl'>Vegetarian</h2>
+                        <div>
+                            <button className='hover:bg-zinc-700 decoration-dashed'>view all</button>
+                        </div>
+                       
                      </div>
                      <div>
 
