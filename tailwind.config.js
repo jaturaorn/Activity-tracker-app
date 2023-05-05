@@ -14,7 +14,11 @@ export default {
         "black-backdrop": "rgba(77, 77, 77, .9)"
       },
       spacing: {
-        "400": "400px"
+        "400": "400px",
+        "900": "900px",
+      },
+      backgroundSize: {
+        "100": "100% 100%"
       }
     },
   },

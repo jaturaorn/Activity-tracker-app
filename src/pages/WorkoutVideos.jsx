@@ -1,8 +1,12 @@
 import React from 'react'
+import ImageCard from '../components/ImageCard'
+
 
 function WorkoutVideos() {
   return (
-    <div>WorkoutVideos</div>
+    <div>
+      <ImageCard />
+    </div>
   )
 }
 

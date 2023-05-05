@@ -7,10 +7,9 @@ import Footer from "../components/Footer"
 function Home() {
   return (
     <>
-        <Imageslider/>
+      <Imageslider/>
       <Main/>
       <Footer/>
-
     </>
   );
 }
