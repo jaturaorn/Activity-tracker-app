@@ -1,8 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../shared/Button';
+// import CardMenu from '../shared/CardMenu-legacy';
 import CardMenu from '../shared/CardMenu';
 
+
 function RecipesPage() {
+
+    const mockData = [
+        {
+            id: 1,
+            name: 'Vegetarian Sushi',
+            imgs: 'https://images.unsplash.com/photo-1676037150304-e4c4a1d585f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+            rating: 3,
+            kcal: 250,
+            meal: 'breakfast',
+            ingredients: [],
+            howto: [],
+
+        
+        },
+        {
+            id: 2,
+            name: 'Vegan Lasagne',
+            imgs: 'https://images.unsplash.com/photo-1647353337660-8b27b53b07f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1065&q=80',
+            rating: 3,
+            kcal: 120,
+            meal: 'breakfast',
+            ingredients: [],
+            howto: [],
+
+        
+        },
+        {
+            id: 3,
+            name: 'Springroll',
+            imgs: 'https://images.unsplash.com/photo-1618406854423-ef169758d6a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3125&q=80',
+            rating: 3,
+            kcal: 220,
+            meal: 'breakfast',
+            ingredients: [],
+            howto: [],
+
+        
+        },
+
+    ]
+
+    const categeries = [
+        {title: "Vegetarian"}
+    ]
+
+    const [data, setdata] = useState(mockData);
+
   return (
 
     <>
@@ -49,6 +98,8 @@ function RecipesPage() {
                     
                  </div>
 
+                 {/* This section need to be refracted */}
+                {/* Vegetarian */}
                  <div className='flex m-5'>
                      <div className='flex align-bottom items-end gap-3'>
                         <h2 className='font-bold text-3xl'>Vegetarian</h2>
@@ -57,12 +108,38 @@ function RecipesPage() {
                         </div>
                        
                      </div>
-                     <div>
-
-                        <CardMenu />
-                        
-                     </div>
+                    
                  </div>
+                 {/* food-card */}
+                 <div className='md:flex justify-around'>
+
+                    {data.map((food, index) => {
+                        return (
+                            <CardMenu data={food} index={index} />
+                        );
+                        
+                    })}
+                </div>
+                    {/* food-card */}
+                <div className='flex m-5'>
+                     <div className='flex align-bottom items-end gap-3'>
+                        <h2 className='font-bold text-3xl'>High Protein</h2>
+                        <div>
+                            <button className='hover:bg-zinc-700 decoration-dashed'>view all</button>
+                        </div>
+                       
+                     </div>
+                    
+                </div>
+                <div className='md:flex justify-around'>
+
+                    {data.map((food, index) => {
+                        return (
+                        <CardMenu data={food} index={index} />
+                        );
+                        
+                    })}
+                </div>
             </div>
     </>
   );
