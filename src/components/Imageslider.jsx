@@ -1,7 +1,7 @@
 import {useState} from "react";
 import Imagedata from './imagedata';
 import '../imgescss.css'
-import { useState } from 'react';
+
 
 const Imageslider = () => {
     const [Current, setCurrent] = useState(0);
@@ -28,7 +28,7 @@ const Imageslider = () => {
         <section className="slider">
             <h1 className="text-white">left</h1>
             {/* <AiOutlineArrowLeft className="leftArrow" onClick={prevSlide} />
-            <AiOutlineArrowRight className="rightArrow" onClick={nextSlide} /> */}
+            <AiOutlineArrowRight className="rightArrow" onClick={nextSlide} />  */}
             {Imagedata.map((data, index) => {
                 return (
                     <div className={index === Current ? "slide active" : "slide"} key={index}>
