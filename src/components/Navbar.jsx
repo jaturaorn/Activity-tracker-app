@@ -64,8 +64,8 @@ const Navbar = () => {
                         })}
 
                     <div className='md:hidden'>
-                        <Button >Log in</Button>
-                        <Button >Join for free</Button>
+                        <Link to="/login"> <Button >Log in</Button></Link>
+                        <Link to="/register"><Button >Join for free</Button></Link>
                     </div>
                     </div>
 
@@ -73,8 +73,8 @@ const Navbar = () => {
                     
                     {/* Right section */}
                     <div className='hidden md:flex items-center gap-4'>
-                        <Button >Log in</Button>
-                        <Button >Join for free</Button>
+                        <Link to="/login"> <Button >Log in</Button></Link>
+                        <Link to="/register"><Button >Join for free</Button></Link>
                     </div>
 
                     <div className='md:hidden'>
