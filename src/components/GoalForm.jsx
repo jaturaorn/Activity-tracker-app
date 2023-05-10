@@ -2,12 +2,12 @@ import { useState } from "react";
 
 /*
     How to use
-    setCloseGoal: boolean default false, use to close this modal after hit close or cancel or create success by parent.
+    setCloseModal: boolean default false, use to close this modal after hit close or cancel or create success by parent.
 
     GoalForm have one duty is store new goal in database. that it.
 */
 
-function GoalForm({ setCloseGoal }) {
+function GoalForm({ setCloseModal }) {
 
     const [goalList, setGoalList] = useState([]);
 
@@ -54,7 +54,7 @@ function GoalForm({ setCloseGoal }) {
                 {/* top */}
                 <div className="flex justify-between items-center bg-main-purple text-white px-4 py-2 rounded-t-md">
                     <span className="font-bold">Create Goal</span>
-                    <span className="cursor-pointer font-bold" onClick={() => setCloseGoal(false)}>&#x2715;</span>
+                    <span className="cursor-pointer font-bold" onClick={() => setCloseModal(false)}>&#x2715;</span>
                 </div>
 
                 {/* modal content */}
@@ -114,7 +114,7 @@ function GoalForm({ setCloseGoal }) {
                     {/* bottom */}
                     <div className="px-4 py-4 flex justify-end items-center gap-x-2 text-white">
                         <button className="bg-main-purple px-4 py-1 rounded-md" >Create</button>
-                        <button className="bg-main-pink px-4 py-1 rounded-md" onClick={() => setCloseGoal(false)}>Cancel</button>
+                        <button className="bg-main-pink px-4 py-1 rounded-md" onClick={() => setCloseModal(false)}>Cancel</button>
                     </div>
                 </form>
             </div>
