@@ -1,7 +1,7 @@
 import content1 from "/src/assets/content1.jpg"
 import content2 from "/src/assets/content2.jpg"
 
-const Main = () => {
+function Main() {
     return (
         <div className="bg-main-purple ">
             <section className="bg-white flex justify-center items-center ">
