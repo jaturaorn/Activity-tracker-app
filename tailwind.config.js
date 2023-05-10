@@ -15,11 +15,12 @@ export default {
       },
       spacing: {
         "400": "400px",
+        "550": "550px",
         "900": "900px",
       },
       backgroundSize: {
         "100": "100% 100%"
-      }
+      },
     },
   },
   plugins: [],
