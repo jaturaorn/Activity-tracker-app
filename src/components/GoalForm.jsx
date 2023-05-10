@@ -42,6 +42,9 @@ function GoalForm({ setCloseModal }) {
 
         // send to database logic...
         setGoalList(prev => { return [ ...prev, newGoal ] })
+        
+        // after added to database then close the modal.
+        setCloseModal(false);
     }
 
     // console.log(goal);
