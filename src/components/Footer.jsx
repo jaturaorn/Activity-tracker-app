@@ -2,7 +2,7 @@ import facebookIcon from "/src/assets/facebook.png"
 import instagramIcon from "/src/assets/instagram.png"
 import twitterIcon from "/src/assets/twitter.png"
 
-const Footer = () => {
+function Footer() {
     return (
         <footer className="bg-main-dark-purple text-white py-10 px-4">
             <div className="flex justify-between items-center container mx-auto">
