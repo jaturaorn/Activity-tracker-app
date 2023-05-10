@@ -19,6 +19,9 @@ export default {
       },
       backgroundSize: {
         "100": "100% 100%"
+      },
+      minWidth: {
+        "300": "300px"
       }
     },
   },
