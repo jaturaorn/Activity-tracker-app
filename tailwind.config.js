@@ -19,7 +19,10 @@ export default {
       },
       backgroundSize: {
         "100": "100% 100%"
-      }
+      },
+      maxWidth: {
+        "7xl" : "80rem",
+      },
     },
   },
   plugins: [],
