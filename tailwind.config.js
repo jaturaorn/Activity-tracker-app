@@ -15,6 +15,7 @@ export default {
       },
       spacing: {
         "400": "400px",
+        "550": "550px",
         "900": "900px",
       },
       backgroundSize: {
@@ -23,6 +24,9 @@ export default {
       maxWidth: {
         "7xl" : "80rem",
       },
+      minWidth: {
+        "300": "300px"
+      }
     },
   },
   plugins: [],

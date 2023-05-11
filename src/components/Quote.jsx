@@ -1,4 +1,4 @@
-const Quote = ({ title, imgURL, name }) => {
+function Quote({ title, imgURL, name }) {
     return (
         <div className="bg-main-dark-purple flex justify-center items-center">
             <div className="container flex flex-col items-center justify-center  text-white gap-y-10 pt-10 pb-10">
