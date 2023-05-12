@@ -1,10 +1,10 @@
-import Form from "../components/Form";
+import LoginAndRegisterForm from "../components/LoginAndRegisterForm";
 
 
 const Register = () => {
     return (
         <>
-            <Form isLogin={false} />
+            <LoginAndRegisterForm isLogin={false} />
         </>
     );
 }

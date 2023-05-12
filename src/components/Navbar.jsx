@@ -52,9 +52,9 @@ const Navbar = () => {
                     </div>
 
                     {/* Center section */}
-                    {shouldShowNavbar ?
                     <div className={`md:flex md:justify-center gap-4 md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'flex flex-col bg-main-pink top-20 ' : 'top-[-490px]'}`}>
-                        {navMenu.map((item, i) => {
+                    {shouldShowNavbar ?
+                        navMenu.map((item, i) => {
                             return (
                                 <Link
                                     key={i}
@@ -63,17 +63,13 @@ const Navbar = () => {
                                     {item.title}
                                 </Link>
                             );
-                        })}
-
-                        
-
-                    <div className='md:hidden'>
-                        <Link to="/login"> <Button >Log in</Button></Link>
-                        <Link to="/register"><Button >Join for free</Button></Link>
-                    </div>
-
-                    </div>
+                        })
                     : null}
+                        <div className='md:hidden'>
+                            <Link to="/login"> <Button >Log in</Button></Link>
+                            <Link to="/register"><Button >Join for free</Button></Link>
+                        </div>
+                    </div>
 
                     {/* Right section */}
                     <div className='hidden md:flex items-center gap-4'>

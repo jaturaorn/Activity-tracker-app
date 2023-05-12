@@ -1,9 +1,9 @@
-import Form from "../components/Form";
+import LoginAndRegisterForm from "../components/LoginAndRegisterForm";
 
 const Login = () => {
     return (
         <>
-            <Form isLogin={true} />
+            <LoginAndRegisterForm isLogin={true} />
         </>
     );
 }
