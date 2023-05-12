@@ -1,47 +1,55 @@
 import {useState} from "react";
-import Imagedata from './imagedata';
-import '../imgescss.css'
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import pic1 from '../image/pic3.jpg';
+import pic2 from '../image/pic4.jpg';
+import pic3 from '../image/pic5.jpg';
 
 const Imageslider = () => {
-    const [Current, setCurrent] = useState(0);
-    const length = Imagedata.length;
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      };
 
-    const prevSlide = () => {
-        if (Current === 0) {
-            setCurrent(length - 1)
-        } else {
-            setCurrent(Current - 1)
-        }
-    }
-
-    const nextSlide = () => {
-        if (Current === length - 1) {
-
-            setCurrent(0)
-        } else {
-            setCurrent(Current + 1)
-        }
-    }
-
+      const images = [
+        { img: pic1 ,
+          title: 'Yoga'
+        },
+        { img: pic2,
+          title: 'Pilates'
+        },
+        { img: pic3,
+          title: 'Pilates'
+        },
+      ];
     return (
-        <section className="slider">
-            <h1 className="text-white">left</h1>
-            {/* <AiOutlineArrowLeft className="leftArrow" onClick={prevSlide} />
-            <AiOutlineArrowRight className="rightArrow" onClick={nextSlide} />  */}
-            {Imagedata.map((data, index) => {
-                return (
-                    <div className={index === Current ? "slide active" : "slide"} key={index}>
-                        {index === Current &&
-                            (
-                                <div>
-                                    <img src={data.image} alt={data.title} className="image" />
-                                </div>
-                            )}
-                    </div>
-                )
-            })}
-        </section>
+        <div className="max-w-4xl mx-auto mt-5">
+        <Slider {...settings}>
+          <div>
+            <img
+              src={pic1}
+              alt="Slide 1"
+            />
+          </div>
+          <div>
+            <img
+              src={pic2}
+              alt="Slide 2"
+            />
+          </div>
+          <div>
+            <img
+              src={pic3}
+              alt="Slide 3"
+            />
+          </div>
+        </Slider>
+        <p>{images.title}</p>
+      </div>
     )
 }
 
