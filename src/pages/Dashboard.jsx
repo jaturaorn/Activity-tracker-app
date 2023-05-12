@@ -1,30 +1,23 @@
+
+import DashHeroTop from '../components/DashHeroTop'
+
 import React, { useState } from 'react'
 import ActivityTracker from '../components/ActivityTracker'
 import GoalTracker from '../components/GoalTracker'
 
+
 function Dashboard() {
 
   return (
+
     <div className="flex flex-col items-center h-full">
       {/* Status Section */}
       <div className="w-full">
         <div className="container border-2 border-yellow-500 mx-auto">
 
-          {/* code here */}
-          <h1>Status section</h1>
-          <h1>Status section</h1>
-          <h1>Status section</h1>
-          <h1>Status section</h1>
-          <h1>Status section</h1>
-          <h1>Status section</h1>
-          <h1>Status section</h1>
-          <h1>Status section</h1>
-          <h1>Status section</h1>
-          <h1>Status section</h1>
-          <h1>Status section</h1>
-          <h1>Status section</h1>
-          <h1 className="text-3xl">Code here.................</h1>
-
+        <DashHeroTop />
+          
+          
         </div>
       </div>
 
@@ -59,6 +52,7 @@ function Dashboard() {
           <GoalTracker />
         </div>
       </div>
+
     </div>
   )
 }
