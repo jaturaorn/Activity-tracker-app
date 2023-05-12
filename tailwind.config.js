@@ -26,6 +26,10 @@ export default {
       },
       minWidth: {
         "300": "300px"
+      },
+      height: {
+        "screen-1/4": "25vh",
+        "screen-2/4": "50vh",
       }
     },
   },
