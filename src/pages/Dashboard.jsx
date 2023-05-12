@@ -1,8 +1,10 @@
-import React from 'react'
+import DashHeroTop from '../components/DashHeroTop'
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div>
+      <DashHeroTop />
+    </div>
   )
 }
 
