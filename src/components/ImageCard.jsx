@@ -20,7 +20,7 @@ const ImageCard = () => {
     },
     {
       img: pic4,
-      title: 'aerobics Workout',
+      title: 'Aerobics Workout',
     }
   ]
   return (
