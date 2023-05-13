@@ -1,6 +1,6 @@
 
 import DashHeroTop from '../components/DashHeroTop'
-
+import DashBoxProfile from '../components/DashBoxProfile'
 import React, { useState } from 'react'
 import ActivityTracker from '../components/ActivityTracker'
 import GoalTracker from '../components/GoalTracker'
@@ -17,7 +17,6 @@ function Dashboard() {
 
         <DashHeroTop />
           
-          
         </div>
       </div>
 
@@ -28,15 +27,7 @@ function Dashboard() {
 
           {/* code here */}
 
-          <h1>Graph section</h1>
-          <h1>Graph section</h1>
-          <h1>Graph section</h1>
-          <h1>Graph section</h1>
-          <h1>Graph section</h1>
-          <h1>Graph section</h1>
-          <h1>Graph section</h1>
-          <h1>Graph section</h1>
-          <h1 className="text-3xl">Code here.................</h1>
+          <DashBoxProfile />  
 
         </div>
       </div>

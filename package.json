@@ -19,7 +19,7 @@
     "react-spring": "^9.7.1",
     "sass": "^1.62.1",
     "postcss": "^8.4.23",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "^3.3.1",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
