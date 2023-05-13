@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../shared/Button';
+import UserNav from '../shared/UserNav';
 import { useState, useEffect, useRef } from 'react';
 
 const Navbar = () => {
@@ -9,6 +10,8 @@ const Navbar = () => {
         { title: 'Recipes', link: '/recipes' },
         { title: 'Dashboard', link: '/dashboard' },
     ]
+    //react hook to set wheter login is true or false
+    const [login, setLogin] = useState(true)
 
     // hide menus when we active on both login or register pages.
     const location = useLocation();
@@ -65,19 +68,29 @@ const Navbar = () => {
                             );
                         })
                     : null}
+                        {
+                        !login ? 
                         <div className='md:hidden'>
                             <Link to="/login"> <Button >Log in</Button></Link>
                             <Link to="/register"><Button >Join for free</Button></Link>
                         </div>
+                        : 
+                        <div className='md:hidden'>
+                                <Link to={"/profile"}>Profile</Link>
+                        </div>
+                        }
+                        
+                        
                     </div>
 
                     {/* Right section */}
-                    <div className='hidden md:flex items-center gap-4'>
+                    { !login ?  <div className='hidden md:flex items-center gap-4'>
 
-                        <Link to="/login"> <Button >Log in</Button></Link>
-                        <Link to="/register"><Button >Join for free</Button></Link>
+                            <Link to="/login"> <Button >Log in</Button></Link>
+                            <Link to="/register"><Button >Join for free</Button></Link>
 
-                    </div>
+                    </div> : <UserNav/>}
+                   
 
                     <div className='md:hidden'>
                         <div id='nav-repsonsive' className=' w-10 h-10 md:hidden'>
