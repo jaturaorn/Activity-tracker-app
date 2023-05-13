@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useHistory } from 'react';
+import RecipeDetail from '../pages/RecipeDetail';
+import { Link } from 'react-router-dom';
 
 const CardMenu = ({ data, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+
   return (
-    <div className="flex flex-col justify-around">
+    <Link to={`/recipes/${data.name}`}>
+      <div className="flex flex-col justify-around" >
       <div
         key={data.index}
         className="relative w-72 h-96 bg-no-repeat bg-cover cursor-pointer rounded-xl"
@@ -51,6 +55,8 @@ const CardMenu = ({ data, index }) => {
         </div>
       </div>
     </div>
+    </Link>
+    
   );
 };
 

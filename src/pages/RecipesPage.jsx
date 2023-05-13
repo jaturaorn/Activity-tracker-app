@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Button from '../shared/Button';
 // import CardMenu from '../shared/CardMenu-legacy';
+import RecipeDetail from './RecipeDetail';
 import CardMenu from '../shared/CardMenu';
 
 
@@ -51,6 +52,9 @@ function RecipesPage() {
     ]
 
     const [data, setdata] = useState(mockData);
+
+  
+    
 
   return (
 
