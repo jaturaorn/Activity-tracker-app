@@ -76,7 +76,7 @@ const Navbar = () => {
                         </div>
                         : 
                         <div className='md:hidden'>
-                                <Link to={"/profile"}>Profile</Link>
+                                <Link to={"/profile"} className='text-white hover:text-black font-bold'>Profile</Link>
                         </div>
                         }
                         
