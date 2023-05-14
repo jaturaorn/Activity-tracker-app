@@ -6,6 +6,8 @@ import WorkoutVideos from './pages/WorkoutVideos'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from "./pages/Register"
+import ProfilePage from './pages/ProfilePage'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -20,7 +22,9 @@ function App() {
               <Route path='/dashboard' element={<Dashboard/>}/>
               <Route path='/login' element={<Login/>}/>
               <Route path='/register' element={<Register/>}/>
+              <Route path='/profile' element={<ProfilePage/>}/>
           </Routes>
+          <Footer/>
       </BrowserRouter>
     </div>
   )
