@@ -1,6 +1,6 @@
 
 import DashHeroTop from '../components/DashHeroTop'
-
+import DashBoxProfile from '../components/DashBoxProfile'
 import React, { useState } from 'react'
 import ActivityTracker from '../components/ActivityTracker'
 import GoalTracker from '../components/GoalTracker'
@@ -17,7 +17,6 @@ function Dashboard() {
 
         <DashHeroTop />
           
-          
         </div>
       </div>
 
@@ -26,8 +25,8 @@ function Dashboard() {
       <div className="w-full">
         <div className="container border-2 border-red-500 mx-auto">
 
+          <DashBoxProfile />  
           <h1 className='border-l-[3px] border-[#000] mb-3'>Tracking History</h1>
-
           <ChartDash />
          
         </div>
