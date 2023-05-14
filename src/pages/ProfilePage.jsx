@@ -64,7 +64,7 @@ const [formToggle, setFormToggle] = useState(false);
                     
             </div>
         </div>
-        <div className='form-container'>
+        {/* <div className='form-container'>
             <form action="">
                 <div>
                     <label htmlFor="">FirstName : </label>
@@ -77,7 +77,7 @@ const [formToggle, setFormToggle] = useState(false);
                 </div>
                 
                 </form>
-                </div>
+                </div> */}
     </div>
   )
 }
