@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function UserNav() {
     //if image = true then show user img
@@ -41,6 +42,8 @@ function UserNav() {
         }
         </button>
         
+
+        
         { userNav && 
             <div className='absolute mt-2 w-48 top-full rounded-lg shadow-2xl bg-white border-solid border-2'>
                 <div className='py-1'>
@@ -54,6 +57,7 @@ function UserNav() {
                 </div>
             </div>
         }
+        
         
         
         </div>

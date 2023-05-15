@@ -8,11 +8,16 @@ import Login from './pages/Login'
 import Register from "./pages/Register"
 import ProfilePage from './pages/ProfilePage'
 import Footer from './components/Footer'
+import { motion } from 'framer-motion'
 
 function App() {
 
   return (
-    <div className="App">
+    <div className="App ">
+      <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+        >
       <BrowserRouter>
           <Navbar />
           <Routes>
@@ -26,6 +31,7 @@ function App() {
           </Routes>
           <Footer/>
       </BrowserRouter>
+      </motion.div>
     </div>
   )
 }

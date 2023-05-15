@@ -8,9 +8,10 @@ import pic3 from '../image/pic5.jpg';
 
 const Imageslider = () => {
     const settings = {
+        autoplay: true,
         dots: true,
         infinite: true,
-        speed: 300,
+        speed: 2600,
         slidesToShow: 1,
         slidesToScroll: 1,
       };
@@ -27,7 +28,7 @@ const Imageslider = () => {
         },
       ];
     return (
-        <div className="max-w-4xl mx-auto mt-5">
+        <div className="max-w-2xl mx-auto mt-5">
         <Slider {...settings}>
           <div>
             <img
