@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Button from '../shared/Button';
 import UserNav from '../shared/UserNav';
 import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
     const navMenu = [
@@ -62,7 +63,7 @@ const Navbar = () => {
                                 <Link
                                     key={i}
                                     to={item.link}
-                                    className={`text-white ${open ? 'hover:text-black font-bold' : 'hover:text-gray-300 font-bold'}`}>
+                                    className={`text-white text-l ${open ? 'hover:text-black font-bold' : 'hover:text-gray-300 font-bold '}`}>
                                     {item.title}
                                 </Link>
                             );
@@ -84,12 +85,20 @@ const Navbar = () => {
                     </div>
 
                     {/* Right section */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: UserNav ? 1 : 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+
+                  
                     { !login ?  <div className='hidden md:flex items-center gap-4'>
 
                             <Link to="/login"> <Button >Log in</Button></Link>
                             <Link to="/register"><Button >Join for free</Button></Link>
 
                     </div> : <UserNav/>}
+                    </motion.div>
                    
 
                     <div className='md:hidden'>
