@@ -7,6 +7,7 @@ import user from '../database/users';
 function ProfilePage() {
 
 
+
 const [userData, setUserData] = useState(user);
 const [formVisible, setFormVisible] = useState(false);
 const handleFormVisible = () => {
@@ -85,3 +86,7 @@ const handleUserData = (newUserData) => {
 }
 
 export default ProfilePage
+
+
+
+                    

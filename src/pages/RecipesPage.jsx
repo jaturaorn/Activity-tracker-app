@@ -1,10 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '../shared/Button';
+import Axios from 'axios';
 // import CardMenu from '../shared/CardMenu-legacy';
 import CardMenu from '../shared/CardMenu';
 
 
 function RecipesPage() {
+    const [datas, setdatas] = useState("");
+    function fetchData() {
+        Axios.get("https://lick-me-food.onrender.com/api/foods/get")
+        .then((res) => {
+            console.log(res[0])
+            setdatas(res);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
+    console.log(datas);
+
+    useEffect (() => {
+        fetchData();
+    }, []);
+
 
     const mockData = [
         {
