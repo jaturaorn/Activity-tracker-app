@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -21,15 +21,29 @@ function UserNav() {
     //mini usernav bar when it is clicked it will show dropdown mini nav-bar of user
     const [userNav, setUserNav] = useState(false)
 
-    function handleClick() {
-        setUserNav(!userNav);
+    function handleMouseEnter() {
+        setUserNav(true);
     }
+
+    function handleMoueLeave() {
+        setUserNav(false);
+    }
+
+    // useEffect(() => {
+    //     window.addEventListener("resize", () => {
+    //         setUserNav(false);
+    //     });
+    //  },[]);
 
     
   return (
     <>
-        <div className='hidden md:flex flex-col justify-center items-center'>
-        <button onClick={handleClick}>
+        <div 
+        className='hidden md:flex flex-col justify-center items-center'
+        onMouseEnter={handleMouseEnter} 
+        onMouseLeave={handleMoueLeave}
+        >
+        <button >
         {
         !userimg ?
         
@@ -44,20 +58,24 @@ function UserNav() {
         
 
         
-        { userNav && 
-            <div className='absolute mt-2 w-48 top-full rounded-lg shadow-2xl bg-white border-solid border-2'>
-                <div className='py-1'>
-                    {userNavBar.map((ele) => {
-                        return(
-                            <Link to={ele.link} className='block px-4 py-2 bg-gray hover:bg-gray-100'>
-                                {ele.title}
-                            </Link>
-                        );
-                    })}
-                </div>
-            </div>
-        }
-        
+        <AnimatePresence>
+          {userNav && (
+            <motion.div
+              className='absolute mt-2 w-48 top-full rounded-lg shadow-2xl bg-white border-solid border-2'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className='py-1'>
+                {userNavBar.map((ele) => (
+                  <Link to={ele.link} className='block px-4 py-2 bg-gray hover:bg-gray-100' key={ele.title}>
+                    {ele.title}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
         
         
         </div>
