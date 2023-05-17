@@ -1,5 +1,5 @@
-import { FaClock,FaFireAlt,FaFontAwesomeFlag } from "react-icons/fa";
-import { MdOutlineWaterDrop } from "react-icons/md"
+import { FaClock,FaFireAlt,FaFontAwesomeFlag,FaTrophy } from "react-icons/fa";
+
 
 const DashHeroTop = () => {
   return (
@@ -34,7 +34,7 @@ const DashHeroTop = () => {
             </div>
             <div className="h-[100px] rouned-[10px] bg-main-purple flex 
                 items-center justify-between px-[30px] cursor-pointer hover:shadow-lg transform hover:scale-[103%]">
-                <MdOutlineWaterDrop fontSize={28} color="" className="mb-3"/>
+                <FaTrophy fontSize={28} color="" className="mb-3"/>
                 <div>
                     <h2 className="text-[#fff] text-[25px] leading-[20px] font-semibold">Energy burn</h2>
                     <h3 className="text-[20px] leading-[22px] font-bold text-[#fff] mt-[5px]">500 cal</h3>
