@@ -4,7 +4,7 @@ const CardMenu = ({ data, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="flex flex-col justify-around">
+    <div className="flex flex-col justify-center items-center gap-6 md:justify-around m-10">
       <div
         key={data.index}
         className="relative w-72 h-96 bg-no-repeat bg-cover cursor-pointer rounded-xl"
@@ -25,7 +25,7 @@ const CardMenu = ({ data, index }) => {
                 isHovered ? 'translate-y-0' : 'translate-y-10'
               }`}
             >
-              <p className="fixed text-2xl flex justify-center leading-10 font-serif text-black backdrop-blur-0 rounded-xl">
+              <p className="fixed text-2xl flex justify-center leading-10 font-light underline text-black backdrop-blur-0 rounded-xl">
                 {data.name}
               </p>
               <hr className="w-0 border-none border-b-2 border-gray-100 absolute bottom-0 left-5 transition-all duration-500" />

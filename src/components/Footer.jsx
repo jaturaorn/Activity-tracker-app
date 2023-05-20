@@ -4,7 +4,7 @@ import twitterIcon from "/src/assets/twitter.png"
 
 function Footer() {
     return (
-        <footer className="bg-main-dark-purple text-white py-10 px-4">
+        <footer className="bg-main-dark-purple text-white py-10 px-4 ">
             <div className="flex justify-between items-center container mx-auto">
                 <div className="">
                     <span className="text-xl">© 2023 JustFit. All Rights Reserved.</span>

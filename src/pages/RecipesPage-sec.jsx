@@ -62,18 +62,6 @@ function RecipesPage() {
 
         
         },
-        // {
-        //     id: 4,
-        //     name: 'Chocoblow',
-        //     imgs: 'https://images.unsplash.com/photo-1618406854423-ef169758d6a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3125&q=80',
-        //     rating: 3,
-        //     kcal: 220,
-        //     meal: 'breakfast',
-        //     ingredients: [],
-        //     howto: [],
-
-        
-        // },
 
     ]
 
@@ -85,39 +73,55 @@ function RecipesPage() {
 
   return (
 
-    <div className='bg-gray-100'>
+    <>
 
             
-                <div className="container mx-auto my-auto p-8 py-10 ">
-                    <div className=' hidden md:flex justify-around '>
-                        <h2 className='md:font-light text-4xl my-3'>Trending Now</h2>
-                    </div>
-
-                    <div className='flex justify-center gap-10 mx-auto m-10 w-full bg-white p-10 rounded-lg shadow-md'>
-                        <div className='w-full md:w-1/2'>
-                            <img className='w-full h-80 rounded-xl object-cover object-center' 
-                            src='https://images.unsplash.com/photo-1680991172715-4074203a40d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80'
-                            //src='https://images.unsplash.com/photo-1623428187425-873f16e10554?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWgelFfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80'
-                            />
-                        </div>
-                        <div className='w-full md:w-1/2 md:flex md:flex-col gap-3 justify-between p-4'>
-                            <h2 className='text-2xl text-center font-light'>Hot Stir Fried Schezwan With Tofu </h2>
-                            <div className='max-w-lg'>
-                                <p className='font-extralight'>Who says Chinese cuisine isn't suitable for weight loss? This gorgeous recipe will forever change your mind!. Absolutely wonderful , Hot n Spicy</p>
+            <div className="container mx-auto my-auto p-8 py-10">
+                <div className=' hidden md:flex justify-around '>
+                    <h2 className='md:font-extrabold text-3xl my-3'>Dish of the Day</h2>
+                    <h2 className='md:font-extrabold text-3xl my-3 ml-10'>Best of Its Kind</h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 gap-8 mt-3">
+                    <div className="border-2 border-solid border-main-purple rounded-lg md:col-span-4 md:row-span-2 p-4">
+                        <div className='flex gap-8 justify-around m-5 '>
+                            <div className='w-80'>
+                                <img className='w-full m-0 md:w-full h-80 rounded-xl'  src='https://images.unsplash.com/photo-1623428187425-873f16e10554?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80'/>
                             </div>
-                            <Button>View Recipe</Button>
+                            <div className='hidden md:flex flex-col gap-3 justify-between'>
+                                <h2 className='text-2xl text-center font-extrabold'>Quinoa Salad</h2>
+                                <p>"The Best salad for your daily delight"</p>
+                                <Button>View Recipe</Button>
+                            </div>
+                            
                         </div>
                     </div>
-                
-                
+                    <div className="border-2 border-solid border-transparent rounded-lg md:col-span-2">
+                        <div className="flex bg-main-purple justify-between items-center align-middle rounded-3xl best-of-salad-container ml-4">
+                                <img
+                                className="hidden md:block w-48 h-48 rounded-lg"
+                                src="https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"
+                                />
+                                <span className="mr-6 text-white">Best of Salad</span>
+                        </div>
+                    </div>
+
+                    <div className="border-10 border-solid border-transparent rounded-lg md:col-span-2">
+                        <div className="flex bg-main-purple justify-between items-center align-middle rounded-3xl best-of-salad-container ml-4">
+                                <img
+                                className="hidden md:block w-48 h-48 rounded-lg"
+                                src="https://images.unsplash.com/photo-1551529674-48920e9b835b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1294&q=80"
+                                />
+                                <span className="mr-6 text-white">Best of Keto</span>
+                        </div>
+                    </div>
                     
-            
+                 </div>
 
                  {/* This section need to be refracted */}
                 {/* Vegetarian */}
                  <div className='flex m-5'>
                      <div className='flex align-bottom items-end gap-3'>
-                        <h2 className='font-light text-3xl'>Vegetarian</h2>
+                        <h2 className='font-bold text-3xl'>Vegetarian</h2>
                         <div>
                             <button className='hover:bg-zinc-700 decoration-dashed'>view all</button>
                         </div>
@@ -125,7 +129,8 @@ function RecipesPage() {
                      </div>
                     
                  </div>
-                 <div className='flex flex-col gap-8 md:flex md:flex-row justify-around flex-wrap'>
+                 {/* food-card */}
+                 <div className='flex flex-col gap-8 md:flex md:flex-row justify-around'>
 
                     {data.map((food, index) => {
                         return (
@@ -134,10 +139,10 @@ function RecipesPage() {
                         
                     })}
                 </div>
-                    {/* High Protein */}
+                    {/* food-card */}
                 <div className='flex m-5'>
                      <div className='flex align-bottom items-end gap-3'>
-                        <h2 className='font-light text-3xl'>High Protein</h2>
+                        <h2 className='font-bold text-3xl'>High Protein</h2>
                         <div>
                             <button className='hover:bg-zinc-700 decoration-dashed'>view all</button>
                         </div>
@@ -145,29 +150,7 @@ function RecipesPage() {
                      </div>
                     
                 </div>
-                <div className='flex flex-col gap-8 md:flex md:flex-row justify-around flex-wrap'>
-
-                    {data.map((food, index) => {
-                        return (
-                        <CardMenu data={food} index={index} />
-                        );
-                        
-                    })}
-                </div>
-
-                {/* Drink */}
-                <div className='flex m-5'>
-                     <div className='flex align-bottom items-end gap-3'>
-                        <h2 className='font-light text-3xl'>Healthy Drink Recipes</h2>
-                        <div>
-                            <button className='hover:bg-zinc-700 decoration-dashed'>view all</button>
-                        </div>
-                       
-                     </div>
-                    
-                </div>
-                
-                <div className='flex flex-col  md:flex md:flex-row justify-around flex-wrap'>
+                <div className='flex flex-col gap-8 md:flex md:flex-row justify-around '>
 
                     {data.map((food, index) => {
                         return (
@@ -177,7 +160,7 @@ function RecipesPage() {
                     })}
                 </div>
             </div>
-         </div>
+    </>
   );
 }
 

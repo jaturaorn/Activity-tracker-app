@@ -16,6 +16,9 @@ function App() {
     <div className="App ">
       <motion.div
           initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          exit={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
         >
       <BrowserRouter>
@@ -37,3 +40,4 @@ function App() {
 }
 
 export default App
+

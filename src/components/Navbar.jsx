@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const Navbar = () => {
     const navMenu = [
         { title: 'Home', link: '/' },
-        { title: 'Videos', link: 'workoutvideos' },
+        { title: 'Workout Videos', link: 'workoutvideos' },
         { title: 'Recipes', link: '/recipes' },
         { title: 'Dashboard', link: '/dashboard' },
     ]
@@ -44,12 +44,12 @@ const Navbar = () => {
     }, [navbarRef]);
 
     return (
-        <nav className='bg-main-purple w-full flex justify-center space-x-o sticky top-0 z-50'>
+        <nav className='bg-main-purple w-full flex justify-center space-x-o sticky top-0 z-50 drop-shadow-2xl'>
 
             <div className='container py-5'>
                 <div className='flex flex-row justify-between'>
                     {/* Left section */}
-                    <div className='flex items-center'>
+                    <div className='flex items-center hover:animate-bounce duration-75 delay-75 '>
                         <Link to={'/'}>
                             <span className='text-main-pink font-extrabold text-2xl mx-0'><span className='text-white px-0'>Just</span>Fit</span>
                         </Link>
@@ -63,8 +63,8 @@ const Navbar = () => {
                                 <Link
                                     key={i}
                                     to={item.link}
-                                    className={`text-white text-l ${open ? 'hover:text-black font-bold' : 'hover:text-gray-300 font-bold '}`}>
-                                    {item.title}
+                                    className={`text-white text-xl ${open ? 'hover:text-black font-bold' : 'hover:text-gray-300 font-bold hover:underline-offset-2'}`}>
+                                    <span className='font-light'>{item.title}</span>
                                 </Link>
                             );
                         })

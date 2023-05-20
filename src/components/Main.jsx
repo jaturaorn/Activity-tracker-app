@@ -1,5 +1,6 @@
 import content1 from "/src/assets/content1.jpg"
 import content2 from "/src/assets/content2.jpg"
+import content3 from "/src/assets/content3.avif"
 
 function Main() {
     return (
@@ -12,7 +13,7 @@ function Main() {
                 </article>
             </section>
             <section className="container mx-auto">
-                <article className="flex text-white pt-16 px-16 max-sm:flex-col max-sm:gap-y-4 max-md:flex-row" >
+                <article className="one flex text-white pt-16 px-16 max-sm:flex-col max-sm:gap-y-4 max-md:flex-row" >
                     <header className="flex flex-col justify-center items-center w-2/4 pr-10 gap-y-4 max-sm:w-full max-sm:pr-0">
                         <h1 className="text-4xl font-semibold">Personalized goal tracking.</h1>
                         <p className="text-xl">JustFit allows you to set customized fitness goals and track your progress towards them. This ensures that you stay motivated and focused on achieving your goals.</p>
@@ -28,6 +29,15 @@ function Main() {
                     </header>
                     <figure className="w-1/2 max-sm:w-full">
                         <img className="block w-full rounded-xl shadow-xl shadow-main-dark-purple" src={content2} alt="excersise image" />
+                    </figure>
+                </article>
+                <article className="one flex text-white p-16 max-sm:flex-col max-sm:gap-y-4 max-md:flex-row" >
+                    <header className="flex flex-col justify-center items-center w-2/4 pr-10 gap-y-4 max-sm:w-full max-sm:pr-0">
+                        <h1 className="text-4xl font-semibold">Living a better life</h1>
+                        <p className="text-xl">With JustFit hand selected recipe to help you lose calories </p>
+                    </header>
+                    <figure className="w-2/4 max-sm:w-full">
+                        <img className="block w-full/2 rounded-xl shadow-xl shadow-main-dark-purple" src={content3} alt="excersise image" />
                     </figure>
                 </article>
             </section>
