@@ -17,7 +17,7 @@ function ActivityCard({ activity, setSelectedActivity, setCloseModal }) {
     }
 
     return (
-        <div className="bg-main-purple text-white shadow-lg rounded-3xl py-4 px-8 max-md:px-4">
+        <div className="bg-main-purple text-white shadow-lg rounded-3xl py-4 px-8 max-md:px-4 hover:shadow-lg transition-all hover:shadow-main-purple hover:transition-all">
             {/* excersise type */}
             <div className="flex justify-between max-md:text-sm max-md:tracking-wide">
                 <div className="w-1/6 flex justify-center items-center ">

@@ -7,6 +7,7 @@ import { caloriesCalculate } from "../utils/utils";
 import { useAuth } from "../shared/authContext";
 import axios from "axios";
 import { useActivityDispatch } from "../shared/activityContext";
+import moment from "moment";
 
 function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActivity }) {
   const { token, userId } = useAuth();
@@ -109,7 +110,7 @@ function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActi
 
   return (
 
-    <div className="fixed top-0 bottom-0 left-0 right-0">
+    <div className="fixed top-0 bottom-0 left-0 right-0 z-20">
       {/* backdrop */}
       <div className="fixed top-0 bottom-0 left-0 right-0 "></div>
 
@@ -173,12 +174,12 @@ function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActi
               <div className="w-1/3">
                 {/* Energy burn */}
                 <span className="font-semibold">Energy burn(Calories)</span>
-                <input className="px-2 py-1 border w-full rounded-md appearance-none" type="number" name="calories" min="0" max="10000" value={activity.energyBurn} placeholder="calcories" disabled />
+                <input className="px-2 py-1 border w-full rounded-md appearance-none" type="number" name="calories" min="0" max="10000000" value={activity.energyBurn} placeholder="calcories" disabled />
               </div>
               <div className="w-1/3">
                 {/* Distance (kilometer) */}
                 <span className="font-semibold">Distance (kilometer)</span>
-                <input className="px-2 py-1 border w-full rounded-md appearance-none" type="number" name="distance" min="0" max="10000" placeholder="Enter distance" value={activity.distance} onChange={(e) => handleDistanceChange(e.target.value)} />
+                <input className="px-2 py-1 border w-full rounded-md appearance-none" type="number" name="distance" min="0" placeholder="Enter distance" value={activity.distance} onChange={(e) => handleDistanceChange(e.target.value)} />
               </div>
             </div>
             <div>

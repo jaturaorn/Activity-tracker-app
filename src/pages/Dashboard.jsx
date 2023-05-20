@@ -1,11 +1,11 @@
-import DashHeroTop from '../components/DashHeroTop'
-import DashBoxProfile from '../components/DashBoxProfile'
 import React, { useState } from 'react'
 import ActivityTracker from '../components/ActivityTracker'
 import GoalTracker from '../components/GoalTracker'
-import ChartDash from '../components/ChartDash'
 import ActivityForm from '../components/ActivityForm'
 import GoalForm from '../components/GoalForm'
+import DashboardUserStats from '../components/DashboardUserStats'
+import DashboardUserProfile from '../components/DashboardUserProfile'
+import DashboardTrackingHistoryGraph from '../components/DashboardTrackingHistoryGraph'
 
 function Dashboard() {
   const [isActivityFormClose, setIsActivityFormClose] = useState(true)
@@ -20,21 +20,21 @@ function Dashboard() {
       <div className="flex flex-col items-center h-full">
         {/* Status Section */}
         <div className="w-full">
-          <div className="container border-2 border-yellow-500 mx-auto">
-
-            <DashHeroTop />
-
+          <div className="container mx-auto">
+            <DashboardUserStats />
           </div>
         </div>
 
         {/* Graph Section */}
-        <div className="w-full">
-          <div className="container border-2 border-red-500 mx-auto">
-
-            <DashBoxProfile />
-            <h1 className='border-l-[3px] border-[#000] mb-3'>Tracking History</h1>
-            <ChartDash />
-
+        <div className="w-full py-16">
+          <div className="container mx-auto">
+            <div>
+              <h1 className="text-3xl font-bold">Tracking History</h1>
+            </div>
+            <div className="container mx-auto grid grid-cols-12 gap-x-8 max-md:grid-cols-1 max-lg:grid-cols-1 max-xl:gap-x-0 max-xl:gap-y-10">
+              <DashboardTrackingHistoryGraph />
+              <DashboardUserProfile />
+            </div>
           </div>
         </div>
 
