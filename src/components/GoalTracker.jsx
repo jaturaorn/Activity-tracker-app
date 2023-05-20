@@ -12,7 +12,7 @@ function GoalTracker({ setCloseModal }) {
                 <div className="pt-8 py-8 shadow-sm">
                     <button className="bg-main-pink text-white px-8 py-2 text-2xl block mx-auto rounded-lg shadow-lg" onClick={() => setCloseModal(false)}>New Goal</button>
                 </div>
-                <div className="flex flex-col gap-y-4 px-12 py-8 overflow-auto w-full h-900 max-md:px-2 max-xl:px-8">
+                <div className="flex flex-col gap-y-6 px-12 py-8 overflow-auto w-full h-900 max-md:px-2 max-xl:px-8">
                     <GoalList />
                 </div>
             </div>

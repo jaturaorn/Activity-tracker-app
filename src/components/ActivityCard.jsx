@@ -1,7 +1,7 @@
 import { Menu, Transition } from '@headlessui/react'
 import edit from "../assets/edit.png"
 import { useActivityDispatch } from '../shared/activityContext';
-import { ActivityIcon } from './ActivityIcon';
+import { ActivityIcon } from '../shared/ActivityIcon';
 
 function ActivityCard({ activity, setSelectedActivity, setCloseModal }) {
     const { deleteActivity } = useActivityDispatch();

@@ -5,12 +5,14 @@ import './index.css'
 
 import { AuthProvider } from './shared/authContext'
 import { ActivityProvider } from './shared/activityContext'
-
+import { GoalProvider } from './shared/goalContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <AuthProvider>
     <ActivityProvider>
-      <App />
+      <GoalProvider>
+        <App />
+      </GoalProvider>
     </ActivityProvider>
   </AuthProvider>
 

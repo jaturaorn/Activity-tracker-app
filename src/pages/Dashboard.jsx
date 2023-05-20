@@ -28,8 +28,8 @@ function Dashboard() {
         {/* Graph Section */}
         <div className="w-full py-16">
           <div className="container mx-auto">
-            <div>
-              <h1 className="text-3xl font-bold">Tracking History</h1>
+            <div className="pb-4">
+              <h1 className="text-3xl font-bold border-l-4 pl-3 border-gray-500 text-gray-500">Tracking History</h1>
             </div>
             <div className="container mx-auto grid grid-cols-12 gap-x-8 max-md:grid-cols-1 max-lg:grid-cols-1 max-xl:gap-x-0 max-xl:gap-y-10">
               <DashboardTrackingHistoryGraph />
@@ -41,8 +41,8 @@ function Dashboard() {
 
         {/* Activity and Goal Section */}
         <div className="w-full flex-grow pb-14">
-          <div className="container mx-auto ">
-            <h1 className="text-3xl font-bold py-2 tracking-wide border-l-[3px] border-[#000]">Your Tracking</h1>
+          <div className="container mx-auto pb-4">
+            <h1 className="text-3xl font-bold py-2 tracking-wide border-l-4 border-gray-500 text-gray-500 pl-3">Your Tracking</h1>
           </div>
           <div className="container mx-auto grid grid-cols-12 gap-x-8 max-md:grid-cols-1 max-lg:grid-cols-1 max-xl:gap-x-0 max-xl:gap-y-10">
             <ActivityTracker isSubmit={isActivityFormClose} setCloseModal={setIsActivityFormClose} setSelectedActivity={setSelectedActivity} />

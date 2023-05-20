@@ -45,7 +45,7 @@ const DashboardTrackingHistoryGraph = () => {
       amt: 2100,
     },
   ];
- 
+
 
   return (
     <div className='col-span-7 rounded-t-xl shadow-lg max-md:rounded-t-none/12 rounded-lg'>
@@ -60,7 +60,7 @@ const DashboardTrackingHistoryGraph = () => {
           <Line type="monotone" dataKey="Hello" stroke="#8884d8" activeDot={{ r: 8 }} />
           <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
         </LineChart>
-      </ResponsiveContainer> 
+      </ResponsiveContainer>
     </div>
   )
 }

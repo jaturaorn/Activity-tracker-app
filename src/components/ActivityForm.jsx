@@ -5,13 +5,11 @@
 import { useState } from "react";
 import { caloriesCalculate } from "../utils/utils";
 import { useAuth } from "../shared/authContext";
-import axios from "axios";
 import { useActivityDispatch } from "../shared/activityContext";
-import moment from "moment";
 
 function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActivity }) {
   const { token, userId } = useAuth();
-  const { addActivity, updateActivity } = useActivityDispatch();
+  const { createActivity, updateActivity } = useActivityDispatch();
 
   const [activity, setActivity] = useState({
     activityType: selectedActivity ? selectedActivity.activityType : "",
@@ -100,7 +98,7 @@ function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActi
     console.log(activity, token);
 
     if (!selectedActivity) {
-      addActivity(activity);
+      createActivity(activity);
     } else {
       updateActivity(selectedActivity._id, activity);
       setSelectedActivity(null);

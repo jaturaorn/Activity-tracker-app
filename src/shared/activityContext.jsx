@@ -1,8 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { useFetch } from "./useFetch.js"
 import axios from "axios";
 import { useAuth } from "./authContext.jsx";
-import { firebaseAuth } from "./firebase.js";
 
 
 const ActivityContext = createContext();
@@ -24,17 +22,19 @@ export function ActivityProvider({ children }) {
 
     useEffect(() => {
         let mounted = false;
-
         if (!mounted) {
             fetchActivity();
         }
         return () => mounted = true;
-    }, [userId, token]);
+    }, [token, userId]);
 
     async function fetchActivity() {
         try {
             const res = await axios.get("http://127.0.0.1:4001/api/activity", {
-                headers: { "x-access-token": token, "x-user-id": userId },
+                headers: {
+                    "x-access-token": token,
+                    "x-user-id": userId
+                },
             });
             console.log(res.status);
             console.log(res.statusText);
@@ -51,7 +51,7 @@ export function ActivityProvider({ children }) {
         }
     }
 
-    async function addActivity(activity) {
+    async function createActivity(activity) {
         try {
             const res = await axios.post("http://127.0.0.1:4001/api/activity", activity, {
                 headers: {
@@ -105,7 +105,7 @@ export function ActivityProvider({ children }) {
 
 
     const activityDispatch = {
-        addActivity,
+        createActivity,
         updateActivity,
         deleteActivity,
     }
