@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import content1 from "/src/assets/content1.jpg"
 import content2 from "/src/assets/content2.jpg"
 
@@ -8,7 +9,7 @@ function Main() {
                 <article className="container flex flex-col justify-center items-center gap-6 p-16">
                     <h1 className="font-bold text-6xl">Crush your activities goals with JustFit</h1>
                     <p className="text-xl">Stay motivated and on track with our powerful exercise tracker and access to helpful health content.</p>
-                    <button className="bg-main-pink text-xl text-white px-8 py-2 rounded-3xl transition-all delay-50 ease-out hover:bg-pink-500 hover:transition-transform hover:scale-125 ">Join for free</button>
+                    <Link to="/register"><button className="bg-main-pink text-xl text-white px-8 py-2 rounded-3xl transition-all delay-50 ease-out hover:bg-pink-500 hover:transition-transform hover:scale-125 ">Join for free</button></Link>
                 </article>
             </section>
             <section className="container mx-auto">

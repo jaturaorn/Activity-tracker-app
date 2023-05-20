@@ -44,7 +44,7 @@ function GoalForm({ setCloseModal }) {
         setGoalList(prev => { return [ ...prev, newGoal ] })
         
         // after added to database then close the modal.
-        setCloseModal(false);
+        setCloseModal(true);
     }
 
     // console.log(goal);
@@ -57,7 +57,7 @@ function GoalForm({ setCloseModal }) {
                 {/* top */}
                 <div className="flex justify-between items-center bg-main-purple text-white px-4 py-2 rounded-t-md">
                     <span className="font-bold">Create Goal</span>
-                    <span className="cursor-pointer font-bold" onClick={() => setCloseModal(false)}>&#x2715;</span>
+                    <span className="cursor-pointer font-bold" onClick={() => setCloseModal(true)}>&#x2715;</span>
                 </div>
 
                 {/* modal content */}
@@ -117,7 +117,7 @@ function GoalForm({ setCloseModal }) {
                     {/* bottom */}
                     <div className="px-4 py-4 flex justify-end items-center gap-x-2 text-white">
                         <button className="bg-main-purple px-4 py-1 rounded-md" >Create</button>
-                        <button className="bg-main-pink px-4 py-1 rounded-md" onClick={() => setCloseModal(false)}>Cancel</button>
+                        <button className="bg-main-pink px-4 py-1 rounded-md" onClick={() => setCloseModal(true)}>Cancel</button>
                     </div>
                 </form>
             </div>

@@ -7,30 +7,68 @@ import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from "./pages/Register"
 import ProfilePage from './pages/ProfilePage'
+import ErrorBoundary from "./pages/ErrorBoundary"
 import Footer from './components/Footer'
 import { motion } from 'framer-motion'
+import ProtectedRoute from "./shared/ProtectedRoute"
+import { useAuth } from './shared/authContext'
 
 function App() {
+  const {token} = useAuth();
 
   return (
     <div className="App ">
       <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-        >
-      <BrowserRouter>
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      >
+        {/* <BrowserRouter>
           <Navbar />
           <Routes>
-              <Route path='/' element={<Home/>}/>
-              <Route path='/workoutvideos' element={<WorkoutVideos/>}/>
-              <Route path='/recipes' element={<RecipesPage/>}/>
-              <Route path='/dashboard' element={<Dashboard/>}/>
-              <Route path='/login' element={<Login/>}/>
-              <Route path='/register' element={<Register/>}/>
-              <Route path='/profile' element={<ProfilePage/>}/>
+            <Route path='/' element={<Home />} />
+            <Route path='/workoutvideos' element={<WorkoutVideos />} />
+            <Route path='/recipes' element={<RecipesPage />} />
+            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/profile' element={<ProfilePage />} />
           </Routes>
-          <Footer/>
-      </BrowserRouter>
+          <Footer />
+        </BrowserRouter> */}
+
+        <BrowserRouter>
+          <Navbar />
+
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/workoutvideos' element={<WorkoutVideos />} />
+            <Route path='/recipes' element={<RecipesPage />} />
+            <Route path='/dashboard' element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/profile' element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            } />
+            <Route path="*" element={<ErrorBoundary />} />
+          </Routes>
+
+          <Footer />
+        </BrowserRouter>
+
+{/* 
+
+// check token
+// role base store in context then
+// redirect 
+
+*/}
+
       </motion.div>
     </div>
   )

@@ -3,7 +3,7 @@ import yoga from "../assets/yoga64.png"
 import edit from "../assets/edit.png"
 import { useState } from "react";
 
-function GoalTracker() {
+function GoalTracker({ setCloseModal }) {
     return (
         <div className="col-span-5 border-main-purple border-2 rounded-t-xl shadow-lg max-md:rounded-t-none">
             <div className="bg-main-purple px-8 py-4 rounded-t-lg max-md:rounded-t-none">
@@ -11,7 +11,7 @@ function GoalTracker() {
             </div>
             <div className="w-full">
                 <div className="pt-8 py-8 shadow-sm">
-                    <button className="bg-main-pink text-white px-8 py-2 text-2xl block mx-auto rounded-lg shadow-lg">New Goal</button>
+                    <button className="bg-main-pink text-white px-8 py-2 text-2xl block mx-auto rounded-lg shadow-lg" onClick={() => setCloseModal(false)}>New Goal</button>
                 </div>
                 <div className="flex flex-col gap-y-4 px-12 py-8 overflow-auto w-full h-900 max-md:px-2 max-xl:px-8">
                     <GoalList />
@@ -24,12 +24,6 @@ function GoalTracker() {
 function GoalList() {
     return (
         <>
-            <GoalCard />
-            <GoalCard />
-            <GoalCard />
-            <GoalCard />
-            <GoalCard />
-            <GoalCard />
             <GoalCard />
         </>
     )
