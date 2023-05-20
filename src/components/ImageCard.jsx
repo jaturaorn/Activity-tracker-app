@@ -25,8 +25,8 @@ const ImageCard = () => {
   ]
   return (
     <main className="container mx-auto py-20 px-8">
-      <h2 className='text-3xl font-bold'>HIIT</h2>
-      <p className='text-large font-semibold my-3'>Ready to get heart pumping?</p>
+      <h2 className='text-3xl font-light'>HIIT</h2>
+      <p className='text-large font-extralight my-3'>Ready to get heart pumping with HIIT workout? Push your limit with this high intensity exercise</p>
       <div className="grid lg:grid-cols-4 gap-6">
         {mockdata.map(card =>(
           <div className='shadow-lg rounded-lg bg-main-purple'>
