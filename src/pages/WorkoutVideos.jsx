@@ -4,7 +4,7 @@ import Pilates from '../components/Pilates';
 
 function WorkoutVideos() {
   return (
-    <div>
+    <div className='bg-gray-100'>
       <ImageCard />
       <Yoga />
       <Pilates />
