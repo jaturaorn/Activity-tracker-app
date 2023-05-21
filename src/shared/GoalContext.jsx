@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { useAuth } from "./authContext";
+import useSWR from "swr";
 
 const GoalContext = createContext(null);
 const GoalDispatchContext = createContext(null);
@@ -34,10 +35,8 @@ export function GoalProvider({ children }) {
                     "x-user-id": userId
                 }
             });
-
-            console.log(res.status);
-            console.log(res.data.data);
-
+            // console.log(res.status);
+            // console.log(res.data.data);
             dispatch({
                 type: "fetch",
                 payload: {

@@ -5,7 +5,7 @@ import ActivityForm from '../components/ActivityForm'
 import GoalForm from '../components/GoalForm'
 import DashboardUserStats from '../components/DashboardUserStats'
 import DashboardUserProfile from '../components/DashboardUserProfile'
-import DashboardTrackingHistoryGraph from '../components/DashboardTrackingHistoryGraph'
+import DashboardTrackingHistory from '../components/DashboardTrackingHistory'
 
 function Dashboard() {
   const [isActivityFormClose, setIsActivityFormClose] = useState(true)
@@ -32,7 +32,7 @@ function Dashboard() {
               <h1 className="text-3xl font-bold border-l-4 pl-3 border-gray-500 text-gray-500">Tracking History</h1>
             </div>
             <div className="container mx-auto grid grid-cols-12 gap-x-8 max-md:grid-cols-1 max-lg:grid-cols-1 max-xl:gap-x-0 max-xl:gap-y-10">
-              <DashboardTrackingHistoryGraph />
+              <DashboardTrackingHistory />
               <DashboardUserProfile />
             </div>
           </div>

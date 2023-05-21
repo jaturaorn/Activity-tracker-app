@@ -1,5 +1,3 @@
-import cat from '../image/Cat.jpg';
-
 const DashboardUserProfile = () => {
   return (
     <div className="col-span-5 border-main-purple border-2 rounded-t-xl shadow-lg max-md:rounded-t-none rounded-lg px-8">
@@ -11,7 +9,7 @@ const DashboardUserProfile = () => {
           <h1 className='text-center text-4xl font-bold tracking-wider'>Karina Aespa</h1>
         </div>
 
-        <div className="flex justify-center items-center text-center text-xl gap-x-8 pt-6 pb-8">
+        <div className="flex justify-center items-center text-center text-xl gap-x-8 pt-6 pb-8 max-xl:grid max-xl:justify-normal">
           <div>
             <h2 className="px-4 py-2 font-semibold">BMI</h2>
             <p className="bg-main-purple text-white px-6 py-2 rounded-xl font-semibold">23.21</p>

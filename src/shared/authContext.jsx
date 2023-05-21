@@ -16,41 +16,43 @@ export function useAuthDispatch() {
 
 export function AuthProvider({ children }) {
     const [credential, dispatch] = useReducer(authReducer, AuthService.getCredential());
-    console.log("Token : ", credential.token);
+    // console.log("Token : ", credential.token);
 
     useEffect(() => {
-        // const unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
-        onAuthStateChanged(firebaseAuth, (user) => {
+        const unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
+        // onAuthStateChanged(firebaseAuth, async (user) => {
             if (user) {
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/firebase.User
-                const uid = user.uid;
-                console.log("Current user : ", uid);
+                const displayName = user.displayName ? user.displayName : "";
+                const email = user.email ? user.email : "";
+                const photoURL = user.photoURL ? user.photoURL : "";
 
-                user.getIdToken().then(idToken => dispatch({
+                const idToken = await user.getIdToken();
+                dispatch({
                     type: "login",
                     payload: {
                         token: idToken,
                         userId: user.uid,
                     }
-                }))
+                })
 
                 console.log("refresh token successfully.");
+                console.log("I'm called first userContext.........");
             } else {
+
                 // User is signed out
-                // ...
                 dispatch({
                     type: "logout",
                     payload: {
-                        token: null
+                        token: null,
+                        userId: null,
                     }
                 })
-                AuthService.clearAll();
                 console.log("I'm out!");
             }
-            // return () => unsubscribe();
+            return () => unsubscribe();
         });
     }, [credential.token])
+
 
     return (
         <AuthContext.Provider value={credential}>
@@ -72,7 +74,7 @@ export function authReducer(currentToken, action) {
         }
 
         case "logout": {
-            const { token, userId } = action.payload;
+            const { token, userId} = action.payload;
             console.log("Remove token : ", token);
             AuthService.clearAll();
             return { token, userId };

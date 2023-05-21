@@ -5,11 +5,13 @@ import { AuthService } from './authService.js';
 import { useAuthDispatch } from './authContext';
 import { signOut  } from 'firebase/auth';
 import { firebaseAuth } from './firebase.js';
+import { useUser } from './userContext.jsx';
 
 function UserNav() {
 
-  const authDispatch = useAuthDispatch();
-  const navigate = useNavigate();
+  const user = useUser();
+  console.log("UserNav test get user", user);
+
 
   //if image = true then show user img
   //else show svg person
@@ -36,7 +38,7 @@ function UserNav() {
   function handleLogout() {
     signOut(firebaseAuth).then(() => {
       console.log("Sign Out.");
-      }) 
+    }) 
 
     authDispatch({
       type: "logout",

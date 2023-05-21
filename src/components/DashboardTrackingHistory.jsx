@@ -1,6 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, ReferenceLine, Area } from 'recharts';
 
-const DashboardTrackingHistoryGraph = () => {
+const DashboardTrackingHistory = () => {
   const data = [
     {
       name: 'Page A',
@@ -48,9 +48,9 @@ const DashboardTrackingHistoryGraph = () => {
 
 
   return (
-    <div className='col-span-7 rounded-t-xl shadow-lg max-md:rounded-t-none/12 rounded-lg'>
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart width={500} height={300} data={data}
+    <div className='col-span-7 grid- rounded-t-xl shadow-lg max-md:rounded-t-none max-lg:h-550 max-md:h-64'>
+      <ResponsiveContainer width="99%" height={"99%"}>
+        <LineChart data={data}
         >
           <Legend />
           <CartesianGrid strokeDasharray="3 3" />
@@ -65,4 +65,4 @@ const DashboardTrackingHistoryGraph = () => {
   )
 }
 
-export default DashboardTrackingHistoryGraph
+export default DashboardTrackingHistory

@@ -1,20 +1,16 @@
 import { useState } from "react";
 import googleIcon from "/src/assets/google.png";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuthDispatch } from "../shared/authContext";
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, getAdditionalUserInfo } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, getAdditionalUserInfo } from "firebase/auth";
 import { firebaseAuth, googleProvider } from "../shared/firebase.js";
-import { AuthService } from "../shared/authService.js";
+import { useUserDispatch } from "../shared/userContext";
 
 
 function Register() {
     const [userInfo, setUserInfo] = useState({ email: "", password: "" });
     const [errorMessage, setErrorMessage] = useState("");
-    const [loginWithGoogle, setLoginWithGoogle] = useState(false);
 
-    // get setToken
-    const authDispatch = useAuthDispatch();
+    const { createUser } = useUserDispatch();
     const navigate = useNavigate();
 
     function handleUserInput(e) {
@@ -23,20 +19,19 @@ function Register() {
 
     async function handleUserSignUpWithEmailAndPassword() {
         try {
-            console.log("Sign In With Google...");
+            console.log("Sign In With Email And Password...");
             const userCredential = await createUserWithEmailAndPassword(firebaseAuth, userInfo.email, userInfo.password);
-            console.log(userCredential.user);
+            // console.log("new user credential ", userCredential.user);
 
-            const token = await userCredential.user.getIdToken();
+            const displayName = userCredential.user.displayName ;
+            const email =  userCredential.user.email ;
+            const photoURL = userCredential.user.photoURL ;
 
-            // authDispatch({
-            //     type: "login",
-            //     payload: {
-            //         token
-            //     }
-            // })
+            await createUser({ firstName: displayName, username: email, profileImage: photoURL })
+            console.log("(USER WITH MAIL SIGNUP) -- send new user to store in database.")
 
-            navigate("/login", { replace: true });
+            // navigate("/login", { replace: true });
+            navigate("/dashboard", { replace: true });
             console.log("navigate to login page.");
         } catch (error) {
             console.log(error.message);
@@ -47,16 +42,19 @@ function Register() {
     async function handleGoogleSignUp() {
         try {
             console.log("SignUp With Google...");
-            const result = await signInWithPopup(firebaseAuth, googleProvider);
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = await result.user.getIdToken();
+            const userCredential = await signInWithPopup(firebaseAuth, googleProvider);
+            const credential = GoogleAuthProvider.credentialFromResult(userCredential);
+            console.log(credential);
 
-            // authDispatch({
-            //     type: "login",
-            //     payload: {
-            //         token,
-            //     }
-            // })
+            // with this methods should check database firstkkkkkkkkkkkk
+
+
+            const displayName = userCredential.user.displayName ;
+            const email =  userCredential.user.email ;
+            const photoURL = userCredential.user.photoURL ;
+            await createUser({ firstName: displayName, username: email, profileImage: photoURL })
+            console.log("(WITH GOOGLE SIGNUP) -- send new user to store in database.")
+        
             navigate("/dashboard", { replace: true });
             console.log("navigate to dashboard.");
         } catch (error) {
@@ -89,15 +87,15 @@ function Register() {
                         </div>
                         <div>
                             <label className="block pb-1" htmlFor="email">Email</label>
-                            <input className="block w-full border-gray-300 border-2 py-2 px-4 rounded-md" type="text" id="email" name="email" placeholder="Your email" onChange={handleUserInput} />
+                            <input className="block w-full border-gray-300 border-2 py-2 px-4 rounded-md" type="email" id="email" name="email" placeholder="Your email" onChange={handleUserInput} />
                         </div>
                         <div>
                             <label className="block pb-1" htmlFor="password">Password</label>
                             <input className="block w-full border-gray-300 border-2 py-2 px-4 rounded-md" type="password" id="password" name="password" placeholder="Password" onChange={handleUserInput} />
                         </div>
                         <div>
-                            <label className="block pb-1" htmlFor="password">Confirm Password</label>
-                            <input className="block w-full border-gray-300 border-2 py-2 px-4 rounded-md" type="password" id="password" name="password" placeholder="Confirm Password" onChange={handleUserInput} />
+                            <label className="block pb-1" htmlFor="confirm-password">Confirm Password</label>
+                            <input className="block w-full border-gray-300 border-2 py-2 px-4 rounded-md" type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" onChange={handleUserInput} />
                         </div>
                         <div>
                             <button className="bg-main-pink text-white font-semibold w-full py-2 px-4 rounded-sm" onClick={() => handleUserSignUpWithEmailAndPassword()} >Sign Up</button>

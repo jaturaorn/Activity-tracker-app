@@ -47,7 +47,7 @@ function GoalForm({ setCloseModal }) {
 
     return (
         <div className="fixed top-0 bottom-0 left-0 right-0 z-20">
-            <div className="fixed top-0 bottom-0 left-0 right-0"></div>
+            <div className="fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-80" onClick={() => setCloseModal(true)}></div>
             <div className="z-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-white shadow-xl w-550 rounded-t-md rounded-b-md">
                 {/* top */}
                 <div className="flex justify-between items-center bg-main-purple text-white px-4 py-2 rounded-t-md">

@@ -8,7 +8,6 @@ import { useAuth } from "../shared/authContext";
 import { useActivityDispatch } from "../shared/activityContext";
 
 function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActivity }) {
-  const { token, userId } = useAuth();
   const { createActivity, updateActivity } = useActivityDispatch();
 
   const [activity, setActivity] = useState({
@@ -95,7 +94,6 @@ function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActi
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(activity, token);
 
     if (!selectedActivity) {
       createActivity(activity);
@@ -110,13 +108,13 @@ function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActi
 
     <div className="fixed top-0 bottom-0 left-0 right-0 z-20">
       {/* backdrop */}
-      <div className="fixed top-0 bottom-0 left-0 right-0 "></div>
+      <div className="fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-80" onClick={() => setCloseModal(true)}></div>
 
       {/* modal content */}
-      <div className="z-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-white shadow-xl w-550 rounded-b-md">
+      <div className="z-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-white shadow-xl w-550 rounded-lg">
 
         {/* top */}
-        <div className="flex justify-between items-center bg-main-purple text-white px-4 py-2 rounded-t-md">
+        <div className="flex justify-between items-center bg-main-purple text-white px-4 py-2 rounded-t-lg">
           <span className="font-bold">{!isEdit ? "Create Activity" : "Edit Activity"}</span>
           <span className="cursor-pointer font-bold" onClick={() => setCloseModal(true)}>&#x2715;</span>
         </div>
