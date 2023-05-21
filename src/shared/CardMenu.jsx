@@ -4,7 +4,7 @@ const CardMenu = ({ data, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-6 md:justify-around m-10">
+    <div className="flex flex-col justify-center items-center gap-4 md:justify-around m-10">
       <div
         key={data.index}
         className="relative w-72 h-96 bg-no-repeat bg-cover cursor-pointer rounded-xl"

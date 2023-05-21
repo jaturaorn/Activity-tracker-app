@@ -7,22 +7,22 @@ import CardMenu from '../shared/CardMenu';
 
 function RecipesPage() {
     const [datas, setdatas] = useState("");
-    function fetchData() {
-        Axios.get("https://lick-me-food.onrender.com/api/foods/get")
-        .then((res) => {
-            console.log(res[0])
-            setdatas(res);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }
+    // function fetchData() {
+    //     Axios.get("https://lick-me-food.onrender.com/api/foods/get")
+    //     .then((res) => {
+    //         console.log(res[0])
+    //         setdatas(res);
+    //     })
+    //     .catch((err) => {
+    //         console.log(err);
+    //     })
+    // }
 
-    console.log(datas);
+    // console.log(datas);
 
-    useEffect (() => {
-        fetchData();
-    }, []);
+    // useEffect (() => {
+    //     fetchData();
+    // }, []);
 
 
     const mockData = [
@@ -62,18 +62,42 @@ function RecipesPage() {
 
         
         },
-        // {
-        //     id: 4,
-        //     name: 'Chocoblow',
-        //     imgs: 'https://images.unsplash.com/photo-1618406854423-ef169758d6a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3125&q=80',
-        //     rating: 3,
-        //     kcal: 220,
-        //     meal: 'breakfast',
-        //     ingredients: [],
-        //     howto: [],
+         {
+             id: 4,
+             name: 'Chocoblow',
+             imgs: 'https://images.unsplash.com/photo-1618406854423-ef169758d6a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3125&q=80',
+           rating: 3,
+            kcal: 220,
+             meal: 'breakfast',
+             ingredients: [],
+            howto: [],
 
         
-        // },
+         },
+         {
+            id: 4,
+            name: 'Chocoblow',
+            imgs: 'https://images.unsplash.com/photo-1618406854423-ef169758d6a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3125&q=80',
+          rating: 3,
+           kcal: 220,
+            meal: 'breakfast',
+            ingredients: [],
+           howto: [],
+
+       
+        },
+        {
+            id: 4,
+            name: 'Chocoblow',
+            imgs: 'https://images.unsplash.com/photo-1618406854423-ef169758d6a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3125&q=80',
+          rating: 3,
+           kcal: 220,
+            meal: 'breakfast',
+            ingredients: [],
+           howto: [],
+
+       
+        },
 
     ]
 
@@ -125,7 +149,7 @@ function RecipesPage() {
                      </div>
                     
                  </div>
-                 <div className='flex flex-col gap-8 md:flex md:flex-row justify-around flex-wrap'>
+                 <div className='menu-render flex flex-col gap-2 items-center justify-center md:flex md:flex-row md:justify-center md:flex-wrap'>
 
                     {data.map((food, index) => {
                         return (
@@ -145,7 +169,7 @@ function RecipesPage() {
                      </div>
                     
                 </div>
-                <div className='flex flex-col gap-8 md:flex md:flex-row justify-around flex-wrap'>
+                <div className='menu-render flex flex-col gap-2 items-center justify-center md:flex md:flex-row md:justify-center md:flex-wrap'>
 
                     {data.map((food, index) => {
                         return (
@@ -167,7 +191,7 @@ function RecipesPage() {
                     
                 </div>
                 
-                <div className='flex flex-col  md:flex md:flex-row justify-around flex-wrap'>
+                <div className='menu-render flex flex-col gap-2 items-center justify-center md:flex md:flex-row md:justify-center md:flex-wrap'>
 
                     {data.map((food, index) => {
                         return (

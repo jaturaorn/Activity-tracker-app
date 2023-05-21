@@ -63,7 +63,7 @@ const Navbar = () => {
                                 <Link
                                     key={i}
                                     to={item.link}
-                                    className={`text-white text-xl ${open ? 'hover:text-black font-bold' : 'hover:text-gray-300 font-bold hover:underline-offset-2'}`}>
+                                    className={`text-white text-base ${open ? 'hover:text-black font-bold' : 'hover:text-gray-300 font-bold hover:underline-offset-2'}`}>
                                     <span className='font-light'>{item.title}</span>
                                 </Link>
                             );
