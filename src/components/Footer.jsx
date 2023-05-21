@@ -9,10 +9,16 @@ function Footer() {
                 <div className="">
                     <span className="text-xl">© 2023 JustFit. All Rights Reserved.</span>
                 </div>
+                <div className="flex gap-5 text-sm text-gray-400">
+                    <span>Faq</span>
+                    <span>About Us</span>
+                    <span>Our services</span>
+                    <span>Careers</span>
+                </div>
                 <div className="flex justify-center items-center gap-4">
-                    <img src={facebookIcon}/>
-                    <img src={instagramIcon}/>
-                    <img src={twitterIcon}/>
+                    <a href="#"><img src={facebookIcon}/></a>
+                    <a href="#"><img src={instagramIcon}/></a>
+                    <a href="#"><img src={twitterIcon}/></a>
                 </div>
             </div>
         </footer>

@@ -32,7 +32,7 @@ const Yoga = () => {
 
   return (
     <section className="container mx-auto py-20 px-8">
-      <h2 className="text-3xl font-light">HIIT</h2>
+      <h2 className="text-3xl font-light">Yoga</h2>
       <p className="text-large font-extralight my-3">
         {titleText}
       </p>
@@ -43,7 +43,9 @@ const Yoga = () => {
             whileHover={{ scale: 1.1, cursor: "pointer" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            <img className="rounded-t-lg" src={card.img} alt="" />
+            <img className="rounded-t-lg w-full h-52 object-cover" src={card.img} alt="yoga-img" 
+            //style={{width: '100%', height: '200px', objectFit: 'cover'}} 
+            />
             <h3 className="text-lg font-light text-black mt-2 mb-2 text-left ml-4">{card.title}</h3>
             <h2 className="text-xs font-light text-gray mt-2 mb-2 text-left ml-4">Calories burnt : {card.calories}</h2>
           </motion.div>
