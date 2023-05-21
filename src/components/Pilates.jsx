@@ -39,7 +39,7 @@ export const Pilates = () => {
               whileHover={{ scale: 1.1, cursor: "pointer" }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              <img className="rounded-t-lg w-full h-52 object-cover" src={card.img} alt="" />
+              <img className="rounded-t-lg w-full md:h-52 md:object-cover" src={card.img} alt="" />
               <h3 className="text-lg font-light text-black mt-2 mb-2 text-left ml-4">{card.title}</h3>
               <h2 className="text-xs font-light text-gray mt-2 mb-2 text-left ml-4">Calories burnt : {card.calories}</h2>
             </motion.div>
