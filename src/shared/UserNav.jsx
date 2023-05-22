@@ -39,13 +39,24 @@ function UserNav() {
       console.log("Sign Out.");
     })
 
-    console.log("Navigate to Home page.");
+    // console.log("Navigate to Home page.");
+  }
+
+  function handleMouseEnter() {
+    setUserNav(true);
+  }
+
+  function handleMoueLeave() {
+    setUserNav(false);
   }
 
 
   return (
     <>
-      <div className='hidden md:flex flex-col justify-center items-center'>
+      <div className='hidden md:flex flex-col justify-center items-center'
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMoueLeave}
+      >
         <button onClick={handleClick}>
           {
             !userimg ?
@@ -61,30 +72,29 @@ function UserNav() {
 
 
 
-        {userNav &&
-          <div className='absolute mt-2 w-48 top-full rounded-lg shadow-2xl bg-white border-solid border-2'>
-            <div className='py-1'>
-              {/* {userNavBar.map((ele) => {
+        <AnimatePresence>
+          {userNav && (
+            <motion.div className='absolute mt-2 w-48 top-full rounded-lg shadow-2xl bg-white border-solid border-2'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className='py-1'>
+                {/* {userNavBar.map((ele) => {
                         return(
                             <Link to={ele.link} className='block px-4 py-2 bg-gray hover:bg-gray-100'>
                                 {ele.title}
                             </Link>
                         );
                     })} */}
-              <Link className='block px-4 py-2 bg-gray hover:bg-gray-100' to="/profile" >My Profile</Link>
-              <Link className='block px-4 py-2 bg-gray hover:bg-gray-100' onClick={handleLogout}>Log out</Link>
-            </div>
-          </div>
-        }
-
-
-
+                <Link className='block px-4 py-2 bg-gray hover:bg-gray-100' to="/profile" >My Profile</Link>
+                <Link className='block px-4 py-2 bg-gray hover:bg-gray-100' onClick={handleLogout}>Log out</Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-
     </>
-
-
-
   )
 }
 

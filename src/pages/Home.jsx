@@ -9,6 +9,11 @@ function Home() {
     <>
       {/* <Imageslider/> */}
       <Main/>
+
+    
+        <Quote/>
+      
+      
     </>
   );
 }

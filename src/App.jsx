@@ -14,15 +14,21 @@ import ProtectedRoute from "./shared/ProtectedRoute"
 import { useAuth } from './shared/authContext'
 
 function App() {
-  const {token} = useAuth();
+  const { token } = useAuth();
 
   return (
     <div className="App ">
       <motion.div
         initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        exit={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
       >
         {/* <BrowserRouter>
+
+        >
+      <BrowserRouter>
           <Navbar />
           <Routes>
             <Route path='/' element={<Home />} />
@@ -61,7 +67,7 @@ function App() {
           <Footer />
         </BrowserRouter>
 
-{/* 
+        {/* 
 
 // check token
 // role base store in context then
