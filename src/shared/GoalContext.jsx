@@ -1,7 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { useAuth } from "./authContext";
-import useSWR from "swr";
 
 const GoalContext = createContext(null);
 const GoalDispatchContext = createContext(null);
