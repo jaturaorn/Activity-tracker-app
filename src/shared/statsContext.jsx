@@ -29,7 +29,7 @@ export function StatsProvider({ children }) {
 
     async function fetchStats() {
         try {
-            const res = await axios.get("http://127.0.0.1:4001/api/stats", { 
+            const res = await axios.get("http://127.0.0.1:4001/api/stats/all", {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId
@@ -61,13 +61,7 @@ export function StatsProvider({ children }) {
 function statsReducer(currentStats, action) {
     switch (action.type) {
         case "fetch": {
-            const { totalDuration, totalDistance, totalEnergyBurn, countGoalsDone } = action.payload;
-            return { 
-                totalDuration, 
-                totalDistance, 
-                totalEnergyBurn, 
-                countGoalsDone 
-             }
+            return action.payload;
         }
     }
 }
