@@ -3,24 +3,23 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AuthService } from './authService.js';
 import { useAuthDispatch } from './authContext';
-import { signOut  } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { firebaseAuth } from './firebase.js';
-import { useUser } from './userContext.jsx';
+import { useUser, useUserDispatch } from './userContext.jsx';
 
 function UserNav() {
 
   const user = useUser();
   console.log("UserNav test get user", user);
 
-
   //if image = true then show user img
   //else show svg person
   //type button
   //userImg
-  const userNavBar = [
-    { title: 'My Profile', link: "/profile" },
-    { title: 'Log out', link: "/" }
-  ]
+  // const userNavBar = [
+  //   { title: 'My Profile', link: "/profile" },
+  //   { title: 'Log out', link: "/" }
+  // ]
 
   //mock image for test
   const imgs = "/src/image/karina-user.jpg";
@@ -38,14 +37,8 @@ function UserNav() {
   function handleLogout() {
     signOut(firebaseAuth).then(() => {
       console.log("Sign Out.");
-    }) 
-
-    authDispatch({
-      type: "logout",
-      payload: {
-        token: null,
-      }
     })
+
     console.log("Navigate to Home page.");
   }
 
@@ -62,7 +55,7 @@ function UserNav() {
 
               :
 
-              <img className="w-10 h-10 rounded-full border-solid border-2" src={imgs} alt="" />
+              <img className="w-10 h-10 rounded-full border-solid border-2" src={user.profileImage} alt="" />
           }
         </button>
 

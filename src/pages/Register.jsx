@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, getAdditionalUserInfo } from "firebase/auth";
 import { firebaseAuth, googleProvider } from "../shared/firebase.js";
 import { useUserDispatch } from "../shared/userContext";
+import { useAuthDispatch } from "../shared/authContext.jsx";
 
 
 function Register() {
@@ -11,6 +12,7 @@ function Register() {
     const [errorMessage, setErrorMessage] = useState("");
 
     const { createUser } = useUserDispatch();
+    const authDispatch = useAuthDispatch();
     const navigate = useNavigate();
 
     function handleUserInput(e) {
@@ -21,17 +23,14 @@ function Register() {
         try {
             console.log("Sign In With Email And Password...");
             const userCredential = await createUserWithEmailAndPassword(firebaseAuth, userInfo.email, userInfo.password);
-            // console.log("new user credential ", userCredential.user);
-
+            const userId = userCredential.user.uid;
             const displayName = userCredential.user.displayName ;
             const email =  userCredential.user.email ;
             const photoURL = userCredential.user.photoURL ;
 
-            await createUser({ firstName: displayName, username: email, profileImage: photoURL })
-            console.log("(USER WITH MAIL SIGNUP) -- send new user to store in database.")
+            await createUser({ firstName: displayName, username: email, profileImage: photoURL, userId })
 
-            // navigate("/login", { replace: true });
-            navigate("/dashboard", { replace: true });
+            navigate("/login", { replace: true });
             console.log("navigate to login page.");
         } catch (error) {
             console.log(error.message);
@@ -43,29 +42,28 @@ function Register() {
         try {
             console.log("SignUp With Google...");
             const userCredential = await signInWithPopup(firebaseAuth, googleProvider);
-            const credential = GoogleAuthProvider.credentialFromResult(userCredential);
-            console.log(credential);
-
-            // with this methods should check database firstkkkkkkkkkkkk
-
-
+            // const credential = GoogleAuthProvider.credentialFromResult(userCredential);
+            const token = await userCredential.user.getIdToken();
+            const userId = userCredential.user.uid;
             const displayName = userCredential.user.displayName ;
             const email =  userCredential.user.email ;
             const photoURL = userCredential.user.photoURL ;
-            await createUser({ firstName: displayName, username: email, profileImage: photoURL })
-            console.log("(WITH GOOGLE SIGNUP) -- send new user to store in database.")
+            await createUser({ firstName: displayName, username: email, profileImage: photoURL, userId })
+            authDispatch({
+                type: "login",
+                payload: {
+                    token,
+                    userId
+                }
+            })
         
             navigate("/dashboard", { replace: true });
             console.log("navigate to dashboard.");
         } catch (error) {
-            // Handle Errors here.
             const errorCode = error.code;
             const errorMessage = error.message;
-            // The email of the user's account used.
             const email = error.customData.email;
-            // The AuthCredential type that was used.
             const credential = GoogleAuthProvider.credentialFromError(error);
-
             console.log(errorCode, errorMessage);
             setErrorMessage("The provided information is incorrect or incomplete.");
         }

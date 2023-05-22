@@ -16,43 +16,28 @@ export function useAuthDispatch() {
 
 export function AuthProvider({ children }) {
     const [credential, dispatch] = useReducer(authReducer, AuthService.getCredential());
-    // console.log("Token : ", credential.token);
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
-        // onAuthStateChanged(firebaseAuth, async (user) => {
-            if (user) {
-                const displayName = user.displayName ? user.displayName : "";
-                const email = user.email ? user.email : "";
-                const photoURL = user.photoURL ? user.photoURL : "";
+    // useEffect(() => {
+    //     const unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
+    //         if (user) {
+    //             // User is sign in
+    //             console.log("login....");
+    //             console.log("fetch user data after login.");
+    //         } else {
 
-                const idToken = await user.getIdToken();
-                dispatch({
-                    type: "login",
-                    payload: {
-                        token: idToken,
-                        userId: user.uid,
-                    }
-                })
-
-                console.log("refresh token successfully.");
-                console.log("I'm called first userContext.........");
-            } else {
-
-                // User is signed out
-                dispatch({
-                    type: "logout",
-                    payload: {
-                        token: null,
-                        userId: null,
-                    }
-                })
-                console.log("I'm out!");
-            }
-            return () => unsubscribe();
-        });
-    }, [credential.token])
-
+    //             // User is signed out
+    //             dispatch({
+    //                 type: "logout",
+    //                 payload: {
+    //                     token: null,
+    //                     userId: null,
+    //                 }
+    //             })
+    //             console.log("I'm out!");
+    //         }
+    //         return () => unsubscribe();
+    //     });
+    // }, [credential.token])
 
     return (
         <AuthContext.Provider value={credential}>
@@ -77,6 +62,11 @@ export function authReducer(currentToken, action) {
             const { token, userId} = action.payload;
             console.log("Remove token : ", token);
             AuthService.clearAll();
+            return { token, userId };
+        }
+
+        case "register": {
+            const { token, userId } = action.payload;
             return { token, userId };
         }
     }

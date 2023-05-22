@@ -5,11 +5,13 @@ import { firebaseAuth, googleProvider } from "../shared/firebase.js";
 import { AuthService } from "../shared/authService.js";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthDispatch } from "../shared/authContext";
+import { useUserDispatch } from "../shared/userContext";
 
 function Login() {
     const [userInfo, setUserInfo] = useState({ email: "", password: "" });
     const [errorMessage, setErrorMessage] = useState("");
 
+    const { createUser } = useUserDispatch();
     const authDispatch  = useAuthDispatch();
     const navigate = useNavigate();
 
@@ -23,15 +25,18 @@ function Login() {
             const userCredential = await signInWithEmailAndPassword(firebaseAuth, userInfo.email, userInfo.password);
             console.log(userCredential.user);
             const token = await userCredential.user.getIdToken();
+            const userId = userCredential.user.uid;
 
             console.log("TokenID", token);
 
-            // authDispatch({
-            //     type: "login",
-            //     payload: {
-            //         token,
-            //     }
-            // })
+            authDispatch({
+                type: "login",
+                payload: {
+                    token,
+                    userId,
+                }
+            })
+
             navigate("/dashboard", { replace: true });
             console.log("navigate to dashboard.");
         } catch (error) {
@@ -42,43 +47,28 @@ function Login() {
     async function handleGoogleLogin() {
         try {
             console.log("Login With Google...");
-            const result = await signInWithPopup(firebaseAuth, googleProvider);
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            // const token = credential.idToken;
-            const token = await result.user.getIdToken();
+            const userCredential = await signInWithPopup(firebaseAuth, googleProvider);
 
-            const user = result.user;
-            const userId = user.uid;
-            const userEmail = user.email;
+            const token = await userCredential.user.getIdToken();
+            const userId = userCredential.user.uid;
+            const displayName = userCredential.user.displayName ;
+            const email =  userCredential.user.email ;
+            const photoURL = userCredential.user.photoURL ;
 
-            console.log("User credential : " + getAdditionalUserInfo(result).profile);
-            console.log("User credential : " + getAdditionalUserInfo(result).username);
-            console.log("User what is this ? : " + user);
-            console.log("Token : ", token);
-
-            console.log("setting token.");
-            console.log("setting token successful.");
-
-
-            // console.log(userCredential.user);
-
-            // authDispatch({
-            //     type: "login",
-            //     payload: {
-            //         token
-            //     }
-            // })
-
+            await createUser({ firstName: displayName, username: email, profileImage: photoURL, userId })
+            authDispatch({
+                type: "login",
+                payload: {
+                    token,
+                    userId
+                }
+            })
+        
             navigate("/dashboard", { replace: true });
+            console.log("navigate to dashboard.");
         } catch (error) {
-            // Handle Errors here.
             const errorCode = error.code;
             const errorMessage = error.message;
-            // The email of the user's account used.
-            // const email = error.customData.email;
-            // The AuthCredential type that was used.
-            // const credential = GoogleAuthProvider.credentialFromError(error);
-
             setErrorMessage("Incorrect username or password.", errorCode, errorMessage);
         }
     }

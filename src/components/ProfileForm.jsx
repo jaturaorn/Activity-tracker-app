@@ -1,17 +1,14 @@
 import React from 'react'
 import {motion} from 'framer-motion'
 import { useState } from 'react';
-
-
-
+import { useUser } from '../shared/userContext';
 
 function ProfileForm({handleFormVisible, userData, handleUserData}) {
-
-    const [firstName, setFirstName] = useState(userData[0].name);
-    const [lastName, setLastName] = useState(userData[0].lastName);
-    const [gender, setGender] = useState(userData[0].gender);
-    const [height, setHeight] = useState(userData[0].height);
-    const [weight, setWeight] = useState(userData[0].weight);
+    const [firstName, setFirstName] = useState(userData.firstName);
+    const [lastName, setLastName] = useState(userData.lastName);
+    const [gender, setGender] = useState(userData.gender);
+    const [height, setHeight] = useState(userData.height);
+    const [weight, setWeight] = useState(userData.weight);
 
     const handleFirstName = (e) => {
         setFirstName(e.target.value)
@@ -32,17 +29,16 @@ function ProfileForm({handleFormVisible, userData, handleUserData}) {
         setWeight(e.target.value)
     }
 
-
     function handleSubmit(e) {
         e.preventDefault()
         const newUserData = {
-            name: firstName,
+            firstName: firstName,
             lastName: lastName,
-            dob: userData[0].dob,
+            dateOfBirth: userData.dateOfBirth,
             gender: gender,
             height: height,
             weight: weight,
-            profilePic: userData[0].profilePic
+            profileImage: userData.profileImage
         }
 
         handleUserData(newUserData)
@@ -52,15 +48,7 @@ function ProfileForm({handleFormVisible, userData, handleUserData}) {
         setHeight("")
         setWeight("")
         handleFormVisible();
-
-
-
     }
-
-
-
-
-
 
   return (
     <div className='fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50'>

@@ -2,17 +2,23 @@ import React, { useState } from 'react'
 import Button from '../shared/Button';
 import ProfileForm from '../components/ProfileForm';
 import { motion } from 'framer-motion';
+import { useUser, useUserDispatch } from '../shared/userContext';
 
 function ProfilePage() {
 
-  const [userData, setUserData] = useState({});
   const [formVisible, setFormVisible] = useState(false);
   const handleFormVisible = () => {
     setFormVisible(!formVisible);
   }
 
+  const user = useUser();
+  const { updateUser } = useUserDispatch();
+
   const handleUserData = (newUserData) => {
-    setUserData([newUserData])
+    console.log("update user data here", newUserData);
+
+    // send to database.
+    updateUser(newUserData)
   }
 
   return (
@@ -24,11 +30,11 @@ function ProfilePage() {
             <h2 className='text-xl font-bold'>My Profile</h2>
           </div>
           <div className='relative inline-block'>
-            {/* <img className='w-30 h-30 rounded-full' src={`${userData[0].profilePic}`} alt="Profile" /> */}
+            <img className='w-30 h-30 rounded-full' src={user.profileImage} alt="Profile" />
             <button id="edit-pic" className='absolute right-4 bottom-4 md:absolute md:bottom-2 md:right-6'><img className='w-5 h-5 bg-slate-300 rounded-full' src="/src/assets/camera-edit.svg" alt="" /></button>
           </div>
           <div className='flex flex-col items-start p-30'>
-            {userData.map((detail) => {
+            {/* {userData.map((detail) => {
               return (
                 <>
 
@@ -55,7 +61,28 @@ function ProfilePage() {
                 </>
 
               );
-            })}
+            })} */}
+
+            <span id='name' className='m-4'>
+              <span className='font-bold'>Name : </span>
+              {`${user.firstName} ${user.lastName}`}
+            </span>
+            <span id='gender' className='m-4'>
+              <span className='font-bold'>Gender: </span>
+              {`${user.gender}`}
+            </span>
+            <span id='dob' className='m-4'>
+              <span className='font-bold'>DOB: </span>
+              {`${user.dateOfBirth}`}
+            </span>
+            <span id='height' className='m-4'>
+              <span className='font-bold'>Height: </span>
+              {`${user.height}`} cm
+            </span>
+            <span id='weight' className='m-4'>
+              <span className='font-bold'>Weight: </span>
+              {`${user.weight}`} Kg
+            </span>
           </div>
           <motion.div
             initial={{ opacity: 0 }}
@@ -63,7 +90,7 @@ function ProfilePage() {
             transition={{ duration: 0.5 }}
           >
 
-            {formVisible && <ProfileForm userData={userData} handleUserData={handleUserData} handleFormVisible={handleFormVisible} />}
+            {formVisible && <ProfileForm userData={user} handleUserData={handleUserData} handleFormVisible={handleFormVisible} />}
           </motion.div>
 
 
