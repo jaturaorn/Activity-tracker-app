@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { useAuth } from '../shared/authContext';
 
 const Navbar = () => {
-<<<<<<< HEAD
   const navMenu = [
     { title: 'Home', link: '/' },
     { title: 'Workout Videos', link: 'workoutvideos' },
@@ -15,16 +14,6 @@ const Navbar = () => {
   ]
   //react hook to set wheter login is true or false
   const [login, setLogin] = useState(true)
-=======
-    const navMenu = [
-        { title: 'Home', link: '/' },
-        { title: 'Workout Videos', link: 'workoutvideos' },
-        { title: 'Recipes', link: '/recipes' },
-        { title: 'Dashboard', link: '/dashboard' },
-    ]
-    //react hook to set wheter login is true or false
-    const [login, setLogin] = useState(true)
->>>>>>> main
 
   const { token } = useAuth();
 
