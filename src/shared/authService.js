@@ -2,6 +2,8 @@
 // this hook use for get and set token from localStorage.
 // if you called useToken, this will return currenttoken or undefiend
 
+// using localStorage
+
 class AuthService {
     static getToken() {
         console.log("get token.");
@@ -59,5 +61,63 @@ class AuthService {
     }
 }
 
+
+// using sessionStorage
+// class AuthService {
+//     static getToken() {
+//         console.log("get token.");
+//         return sessionStorage.getItem("x-access-token");
+//     }
+
+//     static setToken(tokenString) {
+//         console.log("set token.");
+//         sessionStorage.setItem("x-access-token", tokenString);
+//     }
+
+//     static removeToken() {
+//         console.log("remove token.");
+//         sessionStorage.removeItem("x-access-token");
+//     }
+
+//     static getUserId() {
+//         return sessionStorage.getItem("x-user-id");
+//     }
+
+//     static setUserId(tokenString) {
+//         console.log("set token.");
+//         sessionStorage.setItem("x-user-id", tokenString);
+//     }
+
+//     static removeUserId() {
+//         console.log("remove token.");
+//         sessionStorage.removeItem("x-user-id");
+//     }
+
+//     static getUserEmail() {
+//         return sessionStorage.getItem("x-user-email");
+//     }
+
+//     static setUserEmail(tokenString) {
+//         console.log("set token.");
+//         sessionStorage.setItem("x-user-email", tokenString);
+//     }
+
+//     static removeUserEmail() {
+//         console.log("remove token.");
+//         sessionStorage.removeItem("x-access-email");
+//     }
+
+//     static getCredential() {
+//         const token = AuthService.getToken();
+//         const userId = AuthService.getUserId();
+//         const userEmail = AuthService.getUserEmail();
+//         return { token, userId, userEmail };
+//     }
+
+//     static clearAll() {
+//         console.log("clear all.");
+//         sessionStorage.clear();
+//     }
+// }
 
 export { AuthService };

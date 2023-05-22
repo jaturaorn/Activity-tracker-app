@@ -7,19 +7,25 @@ import { AuthProvider } from './shared/authContext'
 import { ActivityProvider } from './shared/activityContext'
 import { GoalProvider } from './shared/goalContext';
 import { UserProvider } from './shared/userContext'
+import { StatsProvider } from './shared/statsContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <AuthProvider>
-    <UserProvider>
-      <ActivityProvider>
-        <GoalProvider>
-          <App />
-        </GoalProvider>
-      </ActivityProvider>
-    </UserProvider>
-  </AuthProvider>
 
-  // <React.StrictMode>
+  <React.StrictMode>
+
+    <AuthProvider>
+      <UserProvider>
+        <ActivityProvider>
+          <GoalProvider>
+            <StatsProvider>
+              <App />
+            </StatsProvider>
+          </GoalProvider>
+        </ActivityProvider>
+      </UserProvider>
+    </AuthProvider>
+
+  </React.StrictMode>,
+
   //   <App />
-  // </React.StrictMode>,
 )
