@@ -24,7 +24,7 @@ function Register() {
             console.log("Sign In With Email And Password...");
             const userCredential = await createUserWithEmailAndPassword(firebaseAuth, userInfo.email, userInfo.password);
             const userId = userCredential.user.uid;
-            const displayName = userCredential.user.displayName ;
+            const displayName = userCredential.user.email ;
             const email =  userCredential.user.email ;
             const photoURL = userCredential.user.photoURL ;
 

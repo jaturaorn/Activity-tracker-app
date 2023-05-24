@@ -1,5 +1,5 @@
 import React from 'react'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useState } from 'react';
 import { useUser } from '../shared/userContext';
 
@@ -62,7 +62,6 @@ function ProfileForm({handleFormVisible, userData, handleUserData}) {
             className='w-full'
             onSubmit={handleSubmit}
             >
-
                 <div className='mb-4'>
                     <input className='w-full p-2 border-2 rounded-md' type="text" value={firstName} onChange={handleFirstName} placeholder='First Name' />
                 </div>
