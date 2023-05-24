@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useGoalDispatch } from "../shared/goalContext";
 import moment from "moment";
-
+// import { lookup } from "geoip-lite"
+import axios from "axios";
+import { caloriesCalculate } from "../utils/utils";
 /*
     How to use
     setCloseModal: boolean default false, use to close this modal after hit close or cancel or create success by parent.
@@ -20,11 +22,22 @@ function GoalForm({ setCloseModal }) {
     const { createGoal } = useGoalDispatch();
 
     function handleTypeChange(activityType) {
-        setGoal(prev => { return { ...prev, activityType } })
+        let calories = caloriesCalculate(activityType, goal.duration)
+        setGoal(prev => { return { ...prev, activityType, energyBurn: calories } })
     }
 
-    function handleDeadlineDate(deadline) {
-        setGoal(prev => { return { ...prev, deadline } })
+    async function handleDeadlineDate(deadline) {
+        const currentHour = moment().hours();
+        const currentMinute = moment().minutes();
+        const currentSecond = moment().seconds();
+        const deadlineDate = moment(deadline).add({
+            hours: currentHour,
+            minutes: currentMinute,
+            seconds: currentSecond
+        })
+        console.log("deadline at ", deadlineDate);
+        
+        setGoal(prev => { return { ...prev, deadline: deadlineDate }});
     }
 
     function handleDurationChange(duration) {

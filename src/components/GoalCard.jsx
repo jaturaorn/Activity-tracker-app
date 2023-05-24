@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ActivityIcon } from "../shared/ActivityIcon.js"
 import { useGoalDispatch } from "../shared/goalContext.jsx";
+import moment from "moment";
 
 function GoalCard({ goal }) {
     const { updateStatusGoal } = useGoalDispatch();
@@ -11,6 +12,37 @@ function GoalCard({ goal }) {
 
     async function handleCancel() {
         updateStatusGoal("cancel", goal._id);
+    }
+
+    function calculateDeadline() {
+        console.log("sdfsdfasdfasdf asdf          ", goal.deadline);
+
+        // const now = moment().format("YYYY-MM-DD");
+        // const future = moment(goal.deadline, "YYYY-MM-DD");
+        const now = moment();
+        const future = moment(goal.deadline)
+        const duration = moment.duration(future.diff(now));
+        const days = Math.floor(duration.asDays());
+        const hours = Math.floor(duration.asHours());
+        const minutes = Math.floor(duration.asMinutes());
+        const seconds = Math.floor(duration.asSeconds());
+        console.log("date now ", moment());
+        console.log("date future ", future);
+
+        console.log(days, " ", hours, " ", minutes, " ", seconds);
+        if (days < 0) {
+            return "The deadline has passed";
+        } else if (days === 0) {
+            if (hours >= 1) {
+                return hours + " hours";
+            } else if (minutes >= 1) {
+                return minutes + " minutes";
+            } else {
+                return seconds + " seconds";
+            }
+        } else {
+            return days + " days";
+        }
     }
 
     return (
@@ -42,7 +74,7 @@ function GoalCard({ goal }) {
 
                     {/* end in */}
                     <div>
-                        <span className="font-semibold">End in: </span><span>{goal.deadline} day</span>
+                        {goal.status === "done" || goal.status === "cancel" ? null : <><span className="font-semibold">End in: </span><span>{calculateDeadline()} day</span> </>}
                     </div>
                 </div>
 
@@ -53,7 +85,7 @@ function GoalCard({ goal }) {
                             <div className="block w-full bg-green-500 rounded-full px-2 py-1 shadow-lg cursor-pointer" onClick={() => handleDone("done")}>Done</div>
                             <div className="block w-full bg-red-500 rounded-full px-2 py-1 shadow-lg cursor-pointer" onClick={() => handleCancel("fail")}>Cancel</div>
                         </>
-                    :null}
+                        : null}
                     {goal.status === "done" ? <div className="block w-full bg-green-500 rounded-full px-2 py-1 shadow-lg">Done</div> : null}
                     {goal.status === "cancel" ? <div className="block w-full bg-red-500 rounded-full px-2 py-1 shadow-lg">Fail</div> : null}
                 </div>
