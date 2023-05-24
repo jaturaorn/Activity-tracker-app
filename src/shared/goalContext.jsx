@@ -28,7 +28,7 @@ export function GoalProvider({ children }) {
 
     async function fetchGoal() {
         try {
-            const res = await axios.get("http://127.0.0.1:4001/api/goal", {
+            const res = await axios.get("https://just-fit-backend.onrender.com/api/goal", {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId
@@ -59,7 +59,7 @@ export function GoalProvider({ children }) {
             //     distance: 1000,
             //     status: "none", 
             // }
-            const res = await axios.post("http://127.0.0.1:4001/api/goal", goal, {
+            const res = await axios.post("https://just-fit-backend.onrender.com/api/goal", goal, {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId
@@ -82,7 +82,7 @@ export function GoalProvider({ children }) {
 
     async function updateStatusGoal(status, goalId) {
         try {
-            const res = await axios.put(`http://127.0.0.1:4001/api/goal/${goalId}`, { status }, {
+            const res = await axios.put(`https://just-fit-backend.onrender.com/api/goal/${goalId}`, { status }, {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId,
