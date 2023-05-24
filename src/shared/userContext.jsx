@@ -70,7 +70,7 @@ export function UserProvider({ children }) {
 
     async function fetchUser() {
         try {
-            const res = await axios.get("http://127.0.0.1:4001/api/user", {
+            const res = await axios.get("https://just-fit-backend.onrender.com/api/user", {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId
@@ -94,7 +94,7 @@ export function UserProvider({ children }) {
     async function updateUser(user) {
         try {
             console.log("update user with data : ", user);
-            const res = await axios.put(`http://127.0.0.1:4001/api/user/${userId}`, user, {
+            const res = await axios.put(`https://just-fit-backend.onrender.com/api/user/${userId}`, user, {
                 headers: {
                     "x-access-token": token,
                 }

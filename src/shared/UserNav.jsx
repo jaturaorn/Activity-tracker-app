@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AuthService } from './authService.js';
-import { useAuthDispatch } from './authContext';
 import { signOut } from 'firebase/auth';
 import { firebaseAuth } from './firebase.js';
-import { useUser, useUserDispatch } from './userContext.jsx';
+import { useUser } from './userContext.jsx';
 
 function UserNav() {
 
