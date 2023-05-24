@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useActivityDispatch } from "../shared/activityContext";
 
 /*
 
@@ -13,20 +14,23 @@ import { useState } from "react"
     // if user confirm delete it will delete in mongoDB
 */
 
-function ActivityAndGoalAlert({ isActivity, setCloseModal }) {
+function ActivityAndGoalAlertConfirm({ isActivity, setCloseModal, activity }) {
+  const { deleteActivity } = useActivityDispatch();
     
     function handleActivityDelete(activity) {
         // logic here
-        const { id } = activity;
+        // const { id } = activity;
+        const { _id } = activity;
 
-        console.log("Activity deleted.");
+        console.log("Activity deleted. ", _id);
+        deleteActivity(_id);
     }
 
     function handleGoalDelete(goal) {
         // logic here
-        const { id } = activity;
+        const { _id } = activity;
 
-        console.log("Goal deleted.");
+        console.log("Goal deleted. ", _id);
     }
 
     function handleSubmit(e) {
@@ -44,8 +48,8 @@ function ActivityAndGoalAlert({ isActivity, setCloseModal }) {
     }
 
     return (
-        <div className="fixed top-0 bottom-0 left-0 right-0">
-            <div className="fixed top-0 bottom-0 left-0 right-0"> </div>
+        <div className="fixed top-0 bottom-0 left-0 right-0 z-20">
+            <div className="fixed top-0 bottom-0 left-0 right-0 bg-black opacity-80"> </div>
             <div className="z-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-white shadow-xl w-550 rounded-b-md min-w-300">
 
                 {/* top */}
@@ -75,4 +79,4 @@ function ActivityAndGoalAlert({ isActivity, setCloseModal }) {
     )
 }
 
-export default ActivityAndGoalAlert
+export default ActivityAndGoalAlertConfirm
