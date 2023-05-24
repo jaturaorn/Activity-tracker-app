@@ -5,7 +5,7 @@ const DashboardTrackingHistory = () => {
   const { weeklyActivityTypeStats } = useStats();
 
   return (
-    <div className='col-span-7 grid- rounded-t-xl shadow-lg max-md:rounded-t-none max-lg:h-550 max-md:h-64'>
+    <div className='col-span-7 grid- rounded-t-xl shadow-lg max-md:rounded-t-none max-lg:h-550 max-md:h-64 z-0'>
       <ResponsiveContainer width="99%" height={"99%"}>
         <BarChart data={weeklyActivityTypeStats}>
           <CartesianGrid strokeDasharray="3 3" />

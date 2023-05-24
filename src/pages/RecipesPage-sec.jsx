@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import Button from '../shared/Button';
-import Axios from 'axios';
 // import CardMenu from '../shared/CardMenu-legacy';
 import CardMenu from '../shared/CardMenu';
+import axios from 'axios';
+import { HOST } from '../utils/apiconfig';
 
 
 function RecipesPage() {
     const [datas, setdatas] = useState("");
     function fetchData() {
-        Axios.get("https://lick-me-food.onrender.com/api/foods/get")
+        axios.get(`"${HOST}/api/foods/get`)
         .then((res) => {
             console.log(res[0])
             setdatas(res);

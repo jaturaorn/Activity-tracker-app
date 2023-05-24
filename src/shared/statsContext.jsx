@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import { useAuth } from "./authContext";
 import { useActivity } from "./activityContext";
+import { HOST } from "../utils/apiconfig";
 import { useGoal } from "./goalContext";
 
 const StatsContext = createContext(null);
@@ -29,7 +30,7 @@ export function StatsProvider({ children }) {
 
     async function fetchStats() {
         try {
-            const res = await axios.get("https://just-fit-backend.onrender.com/api/stats/all", {
+            const res = await axios.get(`${HOST}/api/stats/all`, {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId

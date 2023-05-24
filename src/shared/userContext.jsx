@@ -4,6 +4,7 @@ import { useAuth, useAuthDispatch } from "./authContext";
 import axios from "axios";
 import { firebaseAuth } from "./firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
+import { HOST } from "../utils/apiconfig";
 
 const UserContext = createContext(null);
 const UserDispatch = createContext(null);
@@ -40,6 +41,16 @@ export function UserProvider({ children }) {
                 console.log("login....");
                 console.log("fetch user data after login.");
                 fetchUser();
+
+                const refreshToken = await user.getIdToken();
+                const userId = user.uid;
+                authDispatch({
+                    type: "refresh",
+                    payload: {
+                        token: refreshToken,
+                        userId
+                    }
+                });
             } else {
 
                 // User is signed out
@@ -60,7 +71,7 @@ export function UserProvider({ children }) {
     async function createUser(user) {
         console.log("send to usercontext with ", user)
         try {
-            const res = await axios.post("https://just-fit-backend.onrender.com/auth/register", user);
+            const res = await axios.post(`${HOST}/auth/register`, user);
             console.log("response create user from server ", res.data);
             console.log("response create user from server ", res.status);
         } catch (error) {
@@ -70,7 +81,7 @@ export function UserProvider({ children }) {
 
     async function fetchUser() {
         try {
-            const res = await axios.get("https://just-fit-backend.onrender.com/api/user", {
+            const res = await axios.get(`${HOST}/api/user`, {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId
@@ -94,7 +105,7 @@ export function UserProvider({ children }) {
     async function updateUser(user) {
         try {
             console.log("update user with data : ", user);
-            const res = await axios.put(`https://just-fit-backend.onrender.com/api/user/${userId}`, user, {
+            const res = await axios.put(`${HOST}/api/user/${userId}`, user, {
                 headers: {
                     "x-access-token": token,
                 }
