@@ -33,9 +33,9 @@ function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActi
   }
 
   function handleDateChange(dateTime) {
-    console.log(dateTime);
-    console.log(moment(dateTime, 'YYYY-MM-DD').format('YYYY-MM-DD'));
-    setActivity(prev => { return { ...prev, dateTime: moment(dateTime).format() } });
+    // console.log(dateTime);
+    // console.log(moment(dateTime, 'YYYY-MM-DD').format('YYYY-MM-DD'));
+    setActivity(prev => { return { ...prev, dateTime } });
   }
 
   function handleDistanceChange(distance) {
