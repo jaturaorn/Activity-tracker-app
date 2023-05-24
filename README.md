@@ -1,1 +1,1 @@
-# Activity-tracker-app
+# JustFit
