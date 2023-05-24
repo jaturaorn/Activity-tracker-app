@@ -6,6 +6,7 @@ import { useState } from "react";
 import { caloriesCalculate } from "../utils/utils";
 import { useAuth } from "../shared/authContext";
 import { useActivityDispatch } from "../shared/activityContext";
+import moment from "moment";
 
 function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActivity }) {
   const { createActivity, updateActivity } = useActivityDispatch();
@@ -32,7 +33,9 @@ function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActi
   }
 
   function handleDateChange(dateTime) {
-    setActivity(prev => { return { ...prev, dateTime } });
+    console.log(dateTime);
+    console.log(moment(dateTime, 'YYYY-MM-DD').format('YYYY-MM-DD'));
+    setActivity(prev => { return { ...prev, dateTime: moment(dateTime).format() } });
   }
 
   function handleDistanceChange(distance) {
@@ -153,7 +156,7 @@ function ActivityForm({ isEdit, setCloseModal, selectedActivity, setSelectedActi
               {/* Date */}
               <div className="flex flex-col w-1/3">
                 <span className="font-semibold">Date</span>
-                <input className="px-2 py-1 border w-full rounded-md" type="date" name="date" value={activity.dateTime} onChange={(e) => handleDateChange(e.target.value)} />
+                <input className="px-2 py-1 border w-full rounded-md" type="date" name="date" value={moment(activity.dateTime, 'YYYY-MM-DD').format('YYYY-MM-DD')} onChange={(e) => handleDateChange(e.target.value)} />
               </div>
 
               {/* Time duration */}

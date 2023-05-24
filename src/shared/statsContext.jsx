@@ -29,7 +29,7 @@ export function StatsProvider({ children }) {
 
     async function fetchStats() {
         try {
-            const res = await axios.get("http://127.0.0.1:4001/api/stats/all", {
+            const res = await axios.get("https://just-fit-backend.onrender.com/api/stats/all", {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId

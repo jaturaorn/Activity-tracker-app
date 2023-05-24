@@ -1,9 +1,9 @@
 import { Menu, Transition } from '@headlessui/react'
 import edit from "../assets/edit.png"
-import { useActivityDispatch } from '../shared/activityContext';
 import { ActivityIcon } from '../shared/ActivityIcon';
 import ActivityAndGoalAlertConfirm from './ActivityAndGoalAlertConfirm';
 import { useState } from 'react';
+import moment from 'moment';
 
 function ActivityCard({ activity, setSelectedActivity, setCloseModal }) {
   const [deleteModal, setDeleteModal] = useState(false);
@@ -16,7 +16,6 @@ function ActivityCard({ activity, setSelectedActivity, setCloseModal }) {
 
   async function handleDelete() {
     setDeleteModal(true);
-    // deleteActivity(activity._id);
   }
 
   return (
@@ -38,7 +37,7 @@ function ActivityCard({ activity, setSelectedActivity, setCloseModal }) {
 
             {/* Date */}
             <div className="">
-              <span><span className="font-semibold">Date:</span> {activity.dateTime}</span>
+              <span><span className="font-semibold">Date:</span> {moment(activity.dateTime, 'YYYY-MM-DD').isValid() ? moment(activity.dateTime, 'YYYY-MM-DD').format("YYYY-MM-DD") : null }</span>
             </div>
 
             {/* duration */}
