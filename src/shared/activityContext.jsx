@@ -68,7 +68,7 @@ export function ActivityProvider({ children }) {
 
     async function updateActivity(activityId, activity) {
         try {
-            const res = await axios.put(`http://127.0.0.1:4001/api/activity/${activityId}`, activity, {
+            const res = await axios.put(`https://just-fit-backend.onrender.com/api/activity/${activityId}`, activity, {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId,
