@@ -3,6 +3,7 @@ import Button from '../shared/Button';
 import ProfileForm from '../components/ProfileForm';
 import { motion } from 'framer-motion';
 import { useUser, useUserDispatch } from '../shared/userContext';
+import defaultProfile from "../assets/defaultprofile2.png"
 
 function ProfilePage() {
 
@@ -21,6 +22,8 @@ function ProfilePage() {
     updateUser(newUserData)
   }
 
+  console.log("default profile : ", user.profileImage);
+
   return (
     <div className='min-h-screen'>
       <div className='flex flex-col justify-center items-center border-solid h-full'>
@@ -30,7 +33,7 @@ function ProfilePage() {
             <h2 className='text-xl font-bold'>My Profile</h2>
           </div>
           <div className='relative inline-block'>
-            <img className='w-30 h-30 rounded-full' src={user.profileImage} alt="Profile" />
+            <img className='w-32 h-32 rounded-full' src={!user.profileImage ? defaultProfile : user.profileImage} alt="Profile" />
             <button id="edit-pic" className='absolute right-4 bottom-4 md:absolute md:bottom-2 md:right-6'><img className='w-5 h-5 bg-slate-300 rounded-full' src="/src/assets/camera-edit.svg" alt="" /></button>
           </div>
           <div className='flex flex-col items-start p-30'>

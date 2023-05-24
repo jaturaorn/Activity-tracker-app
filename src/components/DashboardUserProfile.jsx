@@ -1,4 +1,5 @@
 import { useUser } from "../shared/userContext"
+import defaultProfile from "../assets/defaultprofile2.png"
 
 const DashboardUserProfile = () => {
   const user = useUser();
@@ -9,7 +10,7 @@ const DashboardUserProfile = () => {
     <div className="col-span-5 border-main-purple border-2 rounded-t-xl shadow-lg max-md:rounded-t-none rounded-lg px-8">
       <div className="flex flex-col justify-center h-full w-full ">
         <div className="flex justify-center items-center pb-10 pt-8">
-          <img src={user.profileImage} className="block h-64 w-64 rounded-full shadow-lg border-2 border-main-dark-purple object-cover" />
+          <img src={!user.profileImage ? defaultProfile : user.profileImage} className="block h-64 w-64 rounded-full shadow-lg border-2 border-main-dark-purple object-cover" />
         </div>
         <div>
           <h1 className='text-center text-4xl font-bold tracking-wider'>{`${user.firstName} ${user.lastName}`}</h1>

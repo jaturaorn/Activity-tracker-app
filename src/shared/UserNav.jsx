@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { signOut } from 'firebase/auth';
 import { firebaseAuth } from './firebase.js';
 import { useUser } from './userContext.jsx';
+import defaultProfile from "../assets/defaultprofile2.png"
 
 function UserNav() {
 
@@ -18,9 +19,6 @@ function UserNav() {
   //   { title: 'My Profile', link: "/profile" },
   //   { title: 'Log out', link: "/" }
   // ]
-
-  //mock image for test
-  const imgs = "/src/image/karina-user.jpg";
 
   //check wheter the state that is sent to the front end has image or not
   const [userimg, setImg] = useState(true)
@@ -64,7 +62,7 @@ function UserNav() {
 
               :
 
-              <img className="w-10 h-10 rounded-full border-solid border-2" src={user.profileImage} alt="" />
+              <img className="w-10 h-10 bg-white rounded-full border-solid border-2" src={!user.profileImage ? defaultProfile : user.profileImage} alt="" />
           }
         </button>
 
