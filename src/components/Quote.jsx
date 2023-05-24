@@ -45,17 +45,19 @@ function Quote({ title, imgURL, name }) {
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="title-quote text-3xl italic text-center font-extralight mb-4">
-            {`"${quote.title}"`}
-          </h1>
-          <div className="grouped-img flex items-center justify-center gap-x-10 gap-y-2">
-            <img
-              className="img-author w-32 h-32 object-cover rounded-full"
-              src={quote.imgURL}
-              alt="user review image"
-            />
-            <p className="text-2xl">{quote.name}</p>
-          </div>
+          <a>
+            <h1 className="title-quote text-3xl italic text-center font-extralight mb-4">
+              {`"${quote.title}"`}
+            </h1>
+            <div className="grouped-img flex items-center justify-center gap-x-10 gap-y-2">
+              <img
+                className="img-author w-32 h-32 object-cover rounded-full"
+                src={quote.imgURL}
+                alt="user review image"
+              />
+              <p className="text-2xl">{quote.name}</p>
+            </div>
+          </a>
         </motion.div>
       </div>
     </div>

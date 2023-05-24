@@ -1,30 +1,34 @@
-import Yoga1 from '../image/cardworkout1.jpg';
-import Yoga2 from '../image/cardworkout5.jpg';
-import Yoga3 from '../image/cardworkout6.jpg';
-import Yoga4 from '../image/cardworkout7.jpg';
+import Yoga1 from '../image/yoga1.jpg'
+import Yoga2 from '../image/yoga2.jpg'
+import Yoga3 from '../image/yoga3.jpg'
+import Yoga4 from '../image/yoga4.jpg'
 import { motion } from 'framer-motion';
 
 const Yoga = () => {
   const mockdata = [
     {
       img: Yoga1,
-      title: 'Yoga 10 Min',
-      calories: '100',
+      title: 'Yoga 15 Min',
+      calories: '500',
+      url: "https://www.youtube.com/watch?v=J94Z4ePPuXQ"
     },
     {
       img: Yoga2,
-      title: 'Yoga 15 Min',
-      calories: '150',
+      title: 'Yoga Flow 40 Min',
+      calories: '1500',
+      url: "https://www.youtube.com/watch?v=J94Z4ePPuXQ"
     },
     {
       img: Yoga3,
-      title: 'Yoga for Mid-day 20 Min',
-      calories: '200',
+      title: 'Morning Yoga 15 Min',
+      calories: '450',
+      url: "https://www.youtube.com/watch?v=J94Z4ePPuXQ"
     },
     {
       img: Yoga4,
-      title: 'Yoga for Evening 30 Min',
+      title: 'Full Body Yoga for Strength & Flexibility',
       calories: '250',
+      url: "https://www.youtube.com/watch?v=Eml2xnoLpYE"
     },
   ];
 
@@ -43,11 +47,13 @@ const Yoga = () => {
             whileHover={{ scale: 1.1, cursor: "pointer" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            <img className="rounded-t-lg w-full h-52 object-cover" src={card.img} alt="yoga-img" 
-            //style={{width: '100%', height: '200px', objectFit: 'cover'}} 
-            />
-            <h3 className="text-lg font-light text-black mt-2 mb-2 text-left ml-4">{card.title}</h3>
-            <h2 className="text-xs font-light text-gray mt-2 mb-2 text-left ml-4">Calories burnt : {card.calories}</h2>
+            <a href={card.url} target='_blank'>
+              <img className="rounded-t-lg w-full h-52 object-cover" src={card.img} alt="yoga-img"
+              //style={{width: '100%', height: '200px', objectFit: 'cover'}} 
+              />
+              <h3 className="text-lg font-light text-black mt-2 mb-2 text-left ml-4">{card.title}</h3>
+              <h2 className="text-xs font-light text-gray mt-2 mb-2 text-left ml-4">Calories burnt : {card.calories}</h2>
+            </a>
           </motion.div>
         ))}
       </div>

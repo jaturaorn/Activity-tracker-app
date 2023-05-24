@@ -1,30 +1,34 @@
-import pic1 from '../image/cardworkout1.jpg';
-import pic2 from '../image/cardworkout2.jpg';
-import pic3 from '../image/cardworkout3.jpg';
-import pic4 from '../image/cardworkout4.jpg';
+import pic1 from '../image/hiit1.jpg'
+import pic2 from '../image/hiit2.jpg'
+import pic3 from '../image/hiit3.jpg'
+import pic4 from '../image/hiit4.jpg'
 import { motion } from 'framer-motion';
 
 const ImageCard = () => {
   const mockdata = [
     {
       img: pic1,
-      title: 'Yoga 15 Min',
-      calories: '110',
+      title: '30 MIN FULL BODY CARDIO HIIT',
+      calories: '3000',
+      url: "https://www.youtube.com/watch?v=Urx4gMA2-Kw"
     },
     {
       img: pic2,
-      title: 'Weight Training',
+      title: '30 MIN CALORIE KILLER HIIT ',
       calories: '100',
+      url: "https://www.youtube.com/watch?v=jpizoUy4K9s"
     },
     {
       img: pic3,
-      title: 'Abs workout',
+      title: '30 MIN CARDIO HIIT ',
       calories: '125',
+      url: "https://www.youtube.com/watch?v=nbP7m0S0Ato"
     },
     {
       img: pic4,
-      title: 'Aerobics Workout',
+      title: '55 MIN HIIT (no equipment)',
       calories: '134',
+      url: "https://www.youtube.com/watch?v=IMuYJAQ5GMk"
     },
   ];
 
@@ -41,9 +45,11 @@ const ImageCard = () => {
             whileHover={{ scale: 1.1, cursor: "pointer" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            <img className="rounded-t-lg" src={card.img} alt="" />
-            <h3 className="text-lg font-light text-black mt-2 mb-2 text-left ml-4">{card.title}</h3>
-            <h2 className="text-xs font-light text-gray mt-2 mb-2 text-left ml-4">Calories burnt : {card.calories}</h2>
+            <a href={card.url} target='_blank'>
+              <img className="rounded-t-lg" src={card.img} alt="" />
+              <h3 className="text-lg font-light text-black mt-2 mb-2 text-left ml-4">{card.title}</h3>
+              <h2 className="text-xs font-light text-gray mt-2 mb-2 text-left ml-4">Calories burnt : {card.calories}</h2>
+            </a>
           </motion.div>
         ))}
       </div>
