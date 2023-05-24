@@ -60,7 +60,7 @@ export function UserProvider({ children }) {
     async function createUser(user) {
         console.log("send to usercontext with ", user)
         try {
-            const res = await axios.post("http://127.0.0.1:4001/auth/register", user);
+            const res = await axios.post("https://just-fit-backend.onrender.com/auth/register", user);
             console.log("response create user from server ", res.data);
             console.log("response create user from server ", res.status);
         } catch (error) {
