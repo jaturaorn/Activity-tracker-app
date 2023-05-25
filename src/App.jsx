@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import { motion } from 'framer-motion'
 import ProtectedRoute from "./shared/ProtectedRoute"
 import { useAuth } from './shared/authContext'
+import RecipeDetail from './pages/RecipeDetail'
 
 function App() {
   const { token } = useAuth();
@@ -54,6 +55,7 @@ function App() {
                 <Dashboard />
               </ProtectedRoute>
             } />
+            <Route path="/recipes/:name" element={<RecipeDetail/>}/>
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/profile' element={

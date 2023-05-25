@@ -6,24 +6,24 @@ import CardMenu from '../shared/CardMenu';
 
 
 function RecipesPage() {
-    const [datas, setdatas] = useState("");
-    // function fetchData() {
-    //     Axios.get("https://lick-me-food.onrender.com/api/foods/get")
-    //     .then((res) => {
-    //         console.log(res[0])
-    //         setdatas(res);
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //     })
-    // }
+    const [datas, setdatas] = useState();
+    function fetchData() {
+        Axios.get("https://lick-me-food.onrender.com/api/foods/get")
+        .then((res) => {
+            console.log("Hi data ", res.data)
+            setdatas(res.data);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+     }
 
-    // console.log(datas);
+    //console.log(datas);
 
-    // useEffect (() => {
-    //     fetchData();
-    // }, []);
-
+     useEffect (() => {
+        //console.log("useEffect");
+        fetchData();
+     }, []);
 
     const mockData = [
         {
@@ -117,7 +117,7 @@ function RecipesPage() {
                         <h2 className='md:font-light text-4xl my-3'>Trending Now</h2>
                     </div>
 
-                    <div className='flex justify-center gap-10 mx-auto m-10 w-full bg-white p-10 rounded-lg shadow-md'>
+                    <div className='flex flex-col md:justify-center md:flex-row gap-10 mx-auto m-10 w-full bg-white p-10 rounded-lg shadow-md'>
                         <div className='w-full md:w-1/2'>
                             <img className='w-full h-80 rounded-xl object-cover object-center' 
                             src='https://images.unsplash.com/photo-1680991172715-4074203a40d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80'
@@ -129,7 +129,10 @@ function RecipesPage() {
                             <div className='max-w-lg'>
                                 <p className='font-extralight'>Who says Chinese cuisine isn't suitable for weight loss? This gorgeous recipe will forever change your mind!. Absolutely wonderful , Hot n Spicy</p>
                             </div>
-                            <Button>View Recipe</Button>
+                            <div className='text-center mt-4'>
+                             <Button>View Recipe</Button>
+                            </div>
+                            
                         </div>
                     </div>
                 
@@ -151,15 +154,18 @@ function RecipesPage() {
                  </div>
                  <div className='menu-render flex flex-col gap-2 items-center justify-center md:flex md:flex-row md:justify-center md:flex-wrap'>
 
-                    {data.map((food, index) => {
-                        return (
-                            <CardMenu data={food} index={index} />
-                        );
-                        
-                    })}
+                 {datas && datas.map((food, index) => {
+                        if (food.genere === "vegetarian") {
+                            return <CardMenu  data={food} />;
+                         }
+                        return null;
+                        })}
                 </div>
-                    {/* High Protein */}
-                <div className='flex m-5'>
+
+
+                
+                 
+                 <div className='flex m-5'>
                      <div className='flex align-bottom items-end gap-3'>
                         <h2 className='font-light text-3xl'>High Protein</h2>
                         <div>
@@ -171,16 +177,16 @@ function RecipesPage() {
                 </div>
                 <div className='menu-render flex flex-col gap-2 items-center justify-center md:flex md:flex-row md:justify-center md:flex-wrap'>
 
-                    {data.map((food, index) => {
-                        return (
-                        <CardMenu data={food} index={index} />
-                        );
-                        
-                    })}
+                {datas && datas.map((food, index) => {
+                        if (food.genere === "high-protein") {
+                            return <CardMenu  data={food} />;
+                         }
+                        return null;
+                        })}
                 </div>
 
-                {/* Drink */}
-                <div className='flex m-5'>
+               
+                {/* <div className='flex m-5'>
                      <div className='flex align-bottom items-end gap-3'>
                         <h2 className='font-light text-3xl'>Healthy Drink Recipes</h2>
                         <div>
@@ -199,7 +205,8 @@ function RecipesPage() {
                         );
                         
                     })}
-                </div>
+                </div>  */}
+               
             </div>
          </div>
   );

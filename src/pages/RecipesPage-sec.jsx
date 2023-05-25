@@ -133,10 +133,13 @@ function RecipesPage() {
                  {/* food-card */}
                  <div className='flex flex-col gap-8 md:flex md:flex-row justify-around'>
 
-                    {data.map((food, index) => {
-                        return (
-                            <CardMenu data={food} index={index} />
-                        );
+                    {datas.map((food, index) => {
+                        if(datas.type === "Vegetarian") {
+                            return (
+                                <CardMenu data={food} index={index} />
+                            );
+                        }
+                        
                         
                     })}
                 </div>
