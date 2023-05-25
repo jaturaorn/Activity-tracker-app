@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import { motion } from 'framer-motion'
 import ProtectedRoute from "./shared/ProtectedRoute"
 import { useAuth } from './shared/authContext'
+import RecipeDetail from './pages/RecipeDetail'
 
 function App() {
   const { token } = useAuth();

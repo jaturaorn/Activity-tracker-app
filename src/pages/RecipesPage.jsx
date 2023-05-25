@@ -6,30 +6,24 @@ import CardMenu from '../shared/CardMenu';
 
 
 function RecipesPage() {
-    const [datas, setdatas] = useState("");
+    const [datas, setdatas] = useState();
     function fetchData() {
         Axios.get("https://lick-me-food.onrender.com/api/foods/get")
         .then((res) => {
-            console.log(res[0])
-             setdatas(res);
+            console.log("Hi data ", res.data)
+            setdatas(res.data);
         })
         .catch((err) => {
             console.log(err);
         })
      }
 
-    // console.log(datas);
+    //console.log(datas);
 
      useEffect (() => {
+        //console.log("useEffect");
         fetchData();
      }, []);
-
-    
-     const handleGenere = (data) => {
-        if (datas.type === "vegatarian") {
-            
-        }
-     }
 
     const mockData = [
         {
@@ -160,15 +154,18 @@ function RecipesPage() {
                  </div>
                  <div className='menu-render flex flex-col gap-2 items-center justify-center md:flex md:flex-row md:justify-center md:flex-wrap'>
 
-                    {data.map((food, index) => {
-                        return (
-                            <CardMenu data={food} index={index} />
-                        );
-                        
-                    })}
+                 {datas && datas.map((food, index) => {
+                        if (food.genere === "vegetarian") {
+                            return <CardMenu  data={food} />;
+                         }
+                        return null;
+                        })}
                 </div>
-                    {/* High Protein */}
-                <div className='flex m-5'>
+
+
+                
+                 
+                 <div className='flex m-5'>
                      <div className='flex align-bottom items-end gap-3'>
                         <h2 className='font-light text-3xl'>High Protein</h2>
                         <div>
@@ -180,16 +177,16 @@ function RecipesPage() {
                 </div>
                 <div className='menu-render flex flex-col gap-2 items-center justify-center md:flex md:flex-row md:justify-center md:flex-wrap'>
 
-                    {data.map((food, index) => {
-                        return (
-                        <CardMenu data={food} index={index} />
-                        );
-                        
-                    })}
+                {datas && datas.map((food, index) => {
+                        if (food.genere === "high-protein") {
+                            return <CardMenu  data={food} />;
+                         }
+                        return null;
+                        })}
                 </div>
 
-                {/* Drink */}
-                <div className='flex m-5'>
+               
+                {/* <div className='flex m-5'>
                      <div className='flex align-bottom items-end gap-3'>
                         <h2 className='font-light text-3xl'>Healthy Drink Recipes</h2>
                         <div>
@@ -208,7 +205,8 @@ function RecipesPage() {
                         );
                         
                     })}
-                </div>
+                </div>  */}
+               
             </div>
          </div>
   );
