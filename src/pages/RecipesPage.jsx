@@ -186,7 +186,7 @@ function RecipesPage() {
                 </div>
 
                
-                {/* <div className='flex m-5'>
+                <div className='flex m-5'>
                      <div className='flex align-bottom items-end gap-3'>
                         <h2 className='font-light text-3xl'>Healthy Drink Recipes</h2>
                         <div>
@@ -199,13 +199,16 @@ function RecipesPage() {
                 
                 <div className='menu-render flex flex-col gap-2 items-center justify-center md:flex md:flex-row md:justify-center md:flex-wrap'>
 
-                    {data.map((food, index) => {
-                        return (
-                        <CardMenu data={food} index={index} />
-                        );
+                    {datas && datas.map((food, index) => {
+                        if (food.genere === "drinking") {
+                            return (
+                                <CardMenu data={food} index={index} />
+                                );
+                        }
+                       
                         
                     })}
-                </div>  */}
+                </div>
                
             </div>
          </div>
