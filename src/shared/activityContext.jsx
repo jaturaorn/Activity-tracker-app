@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import { useAuth } from "./authContext.jsx";
-
+import { HOST } from "../utils/apiconfig.js";
 
 const ActivityContext = createContext();
 const ActivityDispatchContext = createContext();
@@ -30,7 +30,7 @@ export function ActivityProvider({ children }) {
 
     async function fetchActivity() {
         try {
-            const res = await axios.get("https://just-fit-backend.onrender.com/api/activity", {
+            const res = await axios.get(`${HOST}/api/activity`, {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId
@@ -53,7 +53,7 @@ export function ActivityProvider({ children }) {
 
     async function createActivity(activity) {
         try {
-            const res = await axios.post("https://just-fit-backend.onrender.com/api/activity", activity, {
+            const res = await axios.post(`${HOST}/api/activity`, activity, {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId,
@@ -68,7 +68,7 @@ export function ActivityProvider({ children }) {
 
     async function updateActivity(activityId, activity) {
         try {
-            const res = await axios.put(`https://just-fit-backend.onrender.com/api/activity/${activityId}`, activity, {
+            const res = await axios.put(`${HOST}/api/activity/${activityId}`, activity, {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId,
@@ -88,7 +88,7 @@ export function ActivityProvider({ children }) {
         // console.log(activity);
         // send request delete to database.
         try {
-            const res = await axios.delete(`https://just-fit-backend.onrender.com/api/activity/${activityId}`, {
+            const res = await axios.delete(`${HOST}/api/activity/${activityId}`, {
                 headers: {
                     "x-access-token": token,
                     "x-user-id": userId,

@@ -16,29 +16,6 @@ export function useAuthDispatch() {
 
 export function AuthProvider({ children }) {
     const [credential, dispatch] = useReducer(authReducer, AuthService.getCredential());
-
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
-    //         if (user) {
-    //             // User is sign in
-    //             console.log("login....");
-    //             console.log("fetch user data after login.");
-    //         } else {
-
-    //             // User is signed out
-    //             dispatch({
-    //                 type: "logout",
-    //                 payload: {
-    //                     token: null,
-    //                     userId: null,
-    //                 }
-    //             })
-    //             console.log("I'm out!");
-    //         }
-    //         return () => unsubscribe();
-    //     });
-    // }, [credential.token])
-
     return (
         <AuthContext.Provider value={credential}>
             <AuthDispatchContext.Provider value={dispatch}>
@@ -62,6 +39,14 @@ export function authReducer(currentToken, action) {
             const { token, userId} = action.payload;
             console.log("Remove token : ", token);
             AuthService.clearAll();
+            return { token, userId };
+        }
+
+        case "refresh": {
+            const { token, userId } = action.payload;
+            console.log("Refresh new token : ", token);
+            AuthService.setToken(token);
+            AuthService.setUserId(userId)
             return { token, userId };
         }
 

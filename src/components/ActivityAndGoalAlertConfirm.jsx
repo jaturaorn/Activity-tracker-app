@@ -15,8 +15,8 @@ import { useActivityDispatch } from "../shared/activityContext";
 */
 
 function ActivityAndGoalAlertConfirm({ isActivity, setCloseModal, activity }) {
-  const { deleteActivity } = useActivityDispatch();
-    
+    const { deleteActivity } = useActivityDispatch();
+
     function handleActivityDelete(activity) {
         // logic here
         // const { id } = activity;
@@ -70,8 +70,8 @@ function ActivityAndGoalAlertConfirm({ isActivity, setCloseModal, activity }) {
 
                     {/* bottom */}
                     <div className="px-4 py-4 flex justify-end items-center gap-x-2 text-white">
-                        <button className="bg-gray-500 px-4 py-1 rounded-md font-semibold" onClick={(e) => setCloseModal(false)} >Close</button>
                         <button className="bg-red-500 px-4 py-1 rounded-md font-semibold">Delete</button>
+                        <button className="bg-gray-500 px-4 py-1 rounded-md font-semibold" onClick={(e) => setCloseModal(false)} >Close</button>
                     </div>
                 </form>
             </div>

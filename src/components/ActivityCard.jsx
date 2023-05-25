@@ -8,8 +8,7 @@ import moment from 'moment';
 function ActivityCard({ activity, setSelectedActivity, setCloseModal }) {
   const [deleteModal, setDeleteModal] = useState(false);
 
-  function handleEdit(userId) {
-    console.log("Edit", userId);
+  function handleEdit() {
     setSelectedActivity(activity);
     setCloseModal(false);
   }
@@ -17,6 +16,9 @@ function ActivityCard({ activity, setSelectedActivity, setCloseModal }) {
   async function handleDelete() {
     setDeleteModal(true);
   }
+
+  console.log("555555555555555555555555555 : ", activity.dateTime);
+
 
   return (
     <>

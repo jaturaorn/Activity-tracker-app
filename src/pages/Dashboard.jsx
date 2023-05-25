@@ -6,6 +6,7 @@ import GoalForm from '../components/GoalForm'
 import DashboardUserStats from '../components/DashboardUserStats'
 import DashboardUserProfile from '../components/DashboardUserProfile'
 import DashboardTrackingHistory from '../components/DashboardTrackingHistory'
+import { motion } from 'framer-motion'
 
 function Dashboard() {
   const [isActivityFormClose, setIsActivityFormClose] = useState(true)
@@ -14,8 +15,17 @@ function Dashboard() {
 
   return (
     <>
-      {!isActivityFormClose ? <ActivityForm setCloseModal={setIsActivityFormClose} selectedActivity={selectedActivity} setSelectedActivity={setSelectedActivity} /> : null}
-      {!isGoalFormClose ? <GoalForm setCloseModal={setIsGoalFormClose} /> : null}
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 5 }}
+        exit={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      >
+        {!isActivityFormClose ? <ActivityForm setCloseModal={setIsActivityFormClose} selectedActivity={selectedActivity} setSelectedActivity={setSelectedActivity} /> : null}
+        {!isGoalFormClose ? <GoalForm setCloseModal={setIsGoalFormClose} /> : null}
+      </motion.div>
 
       <div className="flex flex-col items-center h-full">
         {/* Status Section */}
